@@ -3,157 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 JMEDI CATALOG - (주)제이메디</title>
+    <title>2026 JMEDI CATALOG</title>
     <style>
-        /* --- 기본 리셋 --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
         }
 
         body {
-            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background-color: #ffffff;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
         }
 
-        /* --- 전체 컨테이너 --- */
-        .site-container {
+        .container {
+            width: 100%;
+            max-width: 480px; /* 모바일 세로형 비율 */
+            min-height: 100vh;
+            background-color: #e3e3e3;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            max-width: 480px; /* 모바일 카탈로그 형태 레이아웃 */
-            margin: 0 auto;
-            border: 1px solid #e0e0e0;
-            background-color: #EFEFEF; /* 기본 회색 배경 */
+            position: relative;
         }
 
-        /* --- 1. 헤더 영역 --- */
+        /* 상단 헤더 */
         header {
-            width: 100%;
-            padding: 20px;
+            padding: 24px 20px 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #EFEFEF;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #444;
         }
 
-        .logo-group {
+        .header-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #4a4a4a;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-area {
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .jm-icon {
-            background: linear-gradient(135deg, #e53935, #1e88e5);
-            color: white;
+        .logo-jm {
+            font-size: 1.3rem;
             font-weight: 900;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            font-style: italic;
+            color: #0b589a;
+            letter-spacing: -1px;
         }
 
-        .co-name {
-            color: #333;
-            font-weight: bold;
+        .logo-jm span {
+            color: #d9251d;
         }
 
-        /* --- 2. 제목 영역 --- */
+        .logo-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #4a4a4a;
+        }
+
+        /* 메인 타이트 박스 영역 */
         .title-section {
-            width: 100%;
-            padding: 10px 20px 25px 20px;
-            background-color: #EFEFEF;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            padding: 10px 20px 30px 20px;
         }
 
-        .box-jmedi {
-            color: #005691;
-            background-color: #BBE2F8;
-            font-size: 1.8rem;
+        .title-box-1 {
+            display: inline-block;
+            background-color: #a4e3ff;
+            color: #0168a3;
+            font-size: 2.2rem;
             font-weight: 900;
-            padding: 6px 14px;
-            letter-spacing: -0.5px;
+            padding: 4px 12px;
+            letter-spacing: -1px;
         }
 
-        .box-catalog {
-            color: white;
-            background-color: #005691;
-            font-size: 2rem;
+        .title-box-2 {
+            display: inline-block;
+            background-color: #0168a3;
+            color: #ffffff;
+            font-size: 2.2rem;
             font-weight: 900;
-            padding: 8px 18px;
-            margin-left: 25px;
-            letter-spacing: -0.5px;
+            padding: 4px 12px;
+            margin-top: -5px;
+            margin-left: 55px;
+            letter-spacing: -1px;
         }
 
-        /* --- 3. 메인 배너 영역 --- */
+        /* 중간 파란색 배너 */
         .banner-section {
-            width: 100%;
-            background-color: #005691;
-            color: white;
+            background-color: #0168a3;
+            color: #ffffff;
             padding: 35px 20px;
-            min-height: 140px;
-            display: flex;
-            align-items: flex-start;
+            min-height: 130px;
         }
 
         .banner-section p {
-            font-size: 1rem;
-            font-weight: bold;
-            letter-spacing: -0.3px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        /* --- 4. 하단 및 물결 영역 --- */
+        /* 하단 공간 & 물결 그래픽 */
         .footer-section {
-            flex-grow: 1;
-            background-color: #EFEFEF;
+            flex: 1;
+            min-height: 250px;
             position: relative;
-            min-height: 300px;
-            overflow: hidden;
+            background-color: #e3e3e3;
         }
 
-        .wave-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 180px;
-        }
-
-        /* SVG 물결 그래픽 스타일 */
         .wave-svg {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="site-container">
+    <div class="container">
         <header>
-            <div class="header-left">
-                2026 JMEDI CATALOG
-            </div>
-            <div class="header-right">
-                <div class="logo-group">
-                    <span class="jm-icon">JM</span>
-                    <span class="co-name">(주) 제이메디</span>
-                </div>
+            <div class="header-title">2026 JMEDI CATALOG</div>
+            <div class="logo-area">
+                <div class="logo-jm">J<span>M</span></div>
+                <div class="logo-text">(주) 제이메디</div>
             </div>
         </header>
 
         <div class="title-section">
-            <div class="box-jmedi">제이메디</div>
-            <div class="box-catalog">카탈로그</div>
+            <div class="title-box-1">제이메디</div><br>
+            <div class="title-box-2">카탈로그</div>
         </div>
 
         <div class="banner-section">
@@ -161,12 +147,10 @@
         </div>
 
         <div class="footer-section">
-            <div class="wave-container">
-                <svg class="wave-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
-                    <path d="M0,60 C150,120 350,10 500,70 L500,150 L0,150 Z" fill="#90C8F6" opacity="0.7"></path>
-                    <path d="M0,90 C180,40 320,120 500,60 L500,150 L0,150 Z" fill="#70B5F5"></path>
-                </svg>
-            </div>
+            <svg class="wave-svg" viewBox="0 0 500 250" preserveAspectRatio="none">
+                <path d="M0,130 C150,90 350,160 500,100 L500,250 L0,250 Z" fill="#b1d7fb"></path>
+                <path d="M0,160 C120,110 320,180 500,120 L500,250 L0,250 Z" fill="#75abf0"></path>
+            </svg>
         </div>
     </div>
 
