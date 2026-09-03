@@ -4,116 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 JMEDI CATALOG</title>
+    <!-- 두껍고 정갈한 한글 고딕 폰트 적용 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             width: 100%;
-            max-width: 480px; /* 모바일 세로형 비율 */
-            min-height: 100vh;
-            background-color: #e3e3e3;
+            max-width: 420px; /* 원본 이미지의 좁은 모바일 세로 비율 */
+            height: 750px;
+            background-color: #ebebeb; /* 원본의 밝은 회색 배경 */
             display: flex;
             flex-direction: column;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
         }
 
-        /* 상단 헤더 */
+        /* --- 1. 상단 헤더 --- */
         header {
-            padding: 24px 20px 15px 20px;
+            padding: 18px 18px 10px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .header-title {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            color: #4a4a4a;
+            color: #555555;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 로고 모양 그래픽 고도화 */
+        .logo-symbol {
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .logo-symbol .j { color: #f21f1e; }
+        .logo-symbol .m { color: #006eb9; }
+
+        .logo-text {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #444444;
             letter-spacing: -0.5px;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .logo-jm {
-            font-size: 1.3rem;
-            font-weight: 900;
-            font-style: italic;
-            color: #0b589a;
-            letter-spacing: -1px;
-        }
-
-        .logo-jm span {
-            color: #d9251d;
-        }
-
-        .logo-text {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #4a4a4a;
-        }
-
-        /* 메인 타이트 박스 영역 */
+        /* --- 2. 메인 타이틀 박스 --- */
         .title-section {
-            padding: 10px 20px 30px 20px;
+            padding: 15px 18px 25px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .title-box-1 {
-            display: inline-block;
-            background-color: #a4e3ff;
-            color: #0168a3;
-            font-size: 2.2rem;
+        /* 하늘색 배경 '제이메디' 박스 */
+        .box-jmedi {
+            background-color: #b5e7ff;
+            color: #0b68a8;
+            font-size: 1.9rem;
             font-weight: 900;
-            padding: 4px 12px;
-            letter-spacing: -1px;
+            padding: 2px 8px;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            display: inline-block;
         }
 
-        .title-box-2 {
-            display: inline-block;
-            background-color: #0168a3;
+        /* 파란색 배경 '카탈로그' 박스 */
+        .box-catalog {
+            background-color: #0b68a8;
             color: #ffffff;
-            font-size: 2.2rem;
+            font-size: 1.9rem;
             font-weight: 900;
-            padding: 4px 12px;
-            margin-top: -5px;
-            margin-left: 55px;
-            letter-spacing: -1px;
+            padding: 2px 8px;
+            margin-left: 58px; /* 이미지처럼 우측으로 엇갈리게 배치 */
+            margin-top: 2px;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            display: inline-block;
         }
 
-        /* 중간 파란색 배너 */
+        /* --- 3. 중간 파란색 배너 --- */
         .banner-section {
-            background-color: #0168a3;
+            background-color: #0b68a8;
             color: #ffffff;
-            padding: 35px 20px;
-            min-height: 130px;
+            padding: 22px 18px;
+            height: 110px;
+            display: flex;
+            align-items: flex-start;
         }
 
         .banner-section p {
-            font-size: 1.05rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 800;
             letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
-        /* 하단 공간 & 물결 그래픽 */
+        /* --- 4. 하단 배경 및 3중 물결 --- */
         .footer-section {
             flex: 1;
-            min-height: 250px;
+            background-color: #ebebeb;
             position: relative;
-            background-color: #e3e3e3;
         }
 
         .wave-svg {
@@ -121,7 +138,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: auto;
+            height: 160px;
             display: block;
         }
     </style>
@@ -129,27 +146,37 @@
 <body>
 
     <div class="container">
+        <!-- 1. 헤더 영역 -->
         <header>
             <div class="header-title">2026 JMEDI CATALOG</div>
-            <div class="logo-area">
-                <div class="logo-jm">J<span>M</span></div>
+            <div class="logo-group">
+                <div class="logo-symbol">
+                    <span class="j">J</span><span class="m">M</span>
+                </div>
                 <div class="logo-text">(주) 제이메디</div>
             </div>
         </header>
 
+        <!-- 2. 박스 형태 제목 영역 -->
         <div class="title-section">
-            <div class="title-box-1">제이메디</div><br>
-            <div class="title-box-2">카탈로그</div>
+            <div class="box-jmedi">제이메디</div>
+            <div class="box-catalog">카탈로그</div>
         </div>
 
+        <!-- 3. 중앙 파란색 띠 배너 -->
         <div class="banner-section">
             <p>2026 제이메디 카탈로그 입니다.</p>
         </div>
 
+        <!-- 4. 하단 영역 & 원본과 유사한 3단계 곡선 물결 -->
         <div class="footer-section">
-            <svg class="wave-svg" viewBox="0 0 500 250" preserveAspectRatio="none">
-                <path d="M0,130 C150,90 350,160 500,100 L500,250 L0,250 Z" fill="#b1d7fb"></path>
-                <path d="M0,160 C120,110 320,180 500,120 L500,250 L0,250 Z" fill="#75abf0"></path>
+            <svg class="wave-svg" viewBox="0 0 420 160" preserveAspectRatio="none">
+                <!-- 제일 뒤 연한 물결 -->
+                <path d="M 0,110 Q 130,50 260,110 T 420,80 L 420,160 L 0,160 Z" fill="#c3e2ff"></path>
+                <!-- 중간 물결 -->
+                <path d="M 0,130 Q 140,80 270,120 T 420,100 L 420,160 L 0,160 Z" fill="#90c4f8"></path>
+                <!-- 맨 앞 진한 물결 -->
+                <path d="M 0,115 Q 120,160 250,110 T 420,130 L 420,160 L 0,160 Z" fill="#70a8f1"></path>
             </svg>
         </div>
     </div>
