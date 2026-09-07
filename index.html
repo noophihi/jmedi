@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제이메디 모바일 책자</title>
-    <!-- 동글동글한 웹폰트 불러오기 (Jua, Gamja Flower, Gothic A1) -->
+    <title>제이메디 모바일 책자 - 1번 3D 그래픽 배너</title>
+    <!-- 웹폰트 불러오기 (Jua, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -16,7 +16,6 @@
             box-sizing: border-box;
         }
 
-        /* 1. 바깥 배경 (블루 톤 그라데이션 및 자연스러운 흐름 연출) */
         body {
             background: linear-gradient(180deg, #d8eaff 0%, #cbe3fd 40%, #badafb 100%);
             display: flex;
@@ -24,11 +23,9 @@
             align-items: flex-start;
             min-height: 100vh;
             padding: 30px 0;
-            font-family: 'Jua', 'Gamja Flower', 'Gothic A1', sans-serif;
-            position: relative;
+            font-family: 'Jua', 'Gothic A1', sans-serif;
         }
 
-        /* 메인 모바일 컨테이너 */
         .container {
             width: 100%;
             max-width: 420px;
@@ -36,422 +33,144 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
-        /* 2. 상단 로고 및 헤더 */
-        .logo-circle {
-            width: 85px;
-            height: 85px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 14px;
-            box-shadow: 0 6px 15px rgba(11, 75, 138, 0.12);
-            overflow: hidden;
-            padding: 8px;
-        }
-
-        .logo-img {
+        /* ----------------------------------------------------
+           [1번 3D 입체 그래픽 메디컬 배너 컷]
+        ---------------------------------------------------- */
+        .top-banner-3d {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .header-title {
-            font-family: 'Jua', sans-serif;
-            font-size: 1.65rem;
-            color: #0b4b8a;
-            margin-bottom: 2px;
-            text-align: center;
-            letter-spacing: -0.5px;
-        }
-
-        .header-sub {
-            font-family: 'Jua', sans-serif;
-            font-size: 0.85rem;
-            color: #4a7ca5;
-            margin-bottom: 28px;
-            text-align: center;
-            letter-spacing: -0.3px;
-        }
-
-        /* 3. 예시 이미지 스타일을 반영한 파트별 카드 섹션 */
-        .card-section {
-            width: 100%;
-            border-radius: 24px;
-            padding: 28px 18px 20px 18px;
+            height: 170px;
+            background: linear-gradient(135deg, #0b5293 0%, #2aa3fb 55%, #7ed0ff 100%);
+            border-radius: 22px;
+            padding: 22px 20px;
             margin-bottom: 24px;
             position: relative;
-            box-shadow: 0 8px 20px rgba(13, 58, 102, 0.08);
-            backdrop-filter: blur(5px);
-        }
-
-        /* 첫 번째 섹션: 라이트 블루/화이트 배경 */
-        .section-catalog {
-            background: linear-gradient(180deg, #ffffff 0%, #f2f8fe 100%);
-            border: 1px solid #ffffff;
-        }
-
-        /* 두 번째 섹션: 차분한 소프트 블루 배경 (자연스럽게 색상 전환) */
-        .section-homepage {
-            background: linear-gradient(180deg, #f0f7ff 0%, #e1effd 100%);
-            border: 1px solid #ffffff;
-        }
-
-        /* 예시 이미지의 상단 고리/탭 연결 스타일 */
-        .card-section::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 10px;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .section-catalog::before {
-            background-color: #2aa3fb;
-        }
-
-        .section-homepage::before {
-            background-color: #1780d8;
-        }
-
-        /* 파트별 뱃지 헤더 */
-        .badge-header {
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(11, 75, 147, 0.25);
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .badge-header::after {
-            content: '';
+        /* 3D 배경 광원 효과 */
+        .banner-glow {
             position: absolute;
-            left: 0;
+            top: -40px;
+            right: -20px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        /* 텍스트 영역 */
+        .banner-text-group {
+            position: relative;
+            z-index: 2;
+            max-width: 65%;
+        }
+
+        .banner-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .banner-title {
+            color: #ffffff;
+            font-size: 1.35rem;
+            line-height: 1.25;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 6px rgba(0, 20, 50, 0.25);
+            word-break: keep-all;
+        }
+
+        .banner-sub {
+            color: #dbeeff;
+            font-size: 0.78rem;
+            font-family: 'Gothic A1', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        /* 입체 3D 그래픽 요소 연출 (우측) */
+        .graphic-container {
+            position: absolute;
+            right: 12px;
             top: 50%;
-            width: 100%;
-            height: 2px;
-            background-color: #cfe6fb;
+            transform: translateY(-50%);
+            width: 130px;
+            height: 130px;
             z-index: 1;
         }
 
-        .badge-title {
-            position: relative;
-            z-index: 2;
-            color: #ffffff;
-            font-family: 'Jua', sans-serif;
-            font-size: 1.15rem;
-            padding: 4px 22px;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .section-catalog .badge-title {
-            background: #2aa3fb;
-            box-shadow: 0 4px 10px rgba(42, 163, 251, 0.3);
-        }
-
-        .section-homepage .badge-title {
-            background: #1780d8;
-            box-shadow: 0 4px 10px rgba(23, 128, 216, 0.3);
-        }
-
-        /* 4. 카탈로그 책자 리스트 (2열 배치 - 흰색 프레임 카드 적용) */
-        .catalog-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .catalog-item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            cursor: pointer;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 16px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s;
-        }
-
-        .catalog-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .book-cover {
-            width: 100%;
-            aspect-ratio: 1 / 1.35;
-            background: linear-gradient(180deg, #d2ebf9 0%, #eef7fc 100%);
-            border-radius: 8px;
-            padding: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #c9e3f5;
-        }
-
-        .cover-header {
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.55rem;
-            font-weight: 900;
-            color: #0b5293;
-            line-height: 1.1;
-        }
-
-        .cover-title {
-            font-family: 'Jua', sans-serif;
-            font-size: 0.8rem;
-            color: #111;
-            margin-top: 1px;
-        }
-
-        .cover-visual {
-            position: relative;
-            height: 60%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .blister {
-            width: 52%;
-            height: 72%;
-            background: rgba(255,255,255,0.85);
-            border-radius: 6px;
-            border: 1px solid #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            padding: 2px;
-            transform: rotate(-6deg);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .mini-pill {
-            width: 18px;
-            height: 8px;
-            border-radius: 4px;
-        }
-        .p-red { background: #e53935; }
-        .p-yellow { background: #fbc02d; }
-        .p-blue { background: #1e88e5; }
-
-        .cover-box {
+        /* 3D 입체 투명 구체 */
+        .sphere-glass {
             position: absolute;
-            bottom: 0;
-            left: 8%;
-            width: 78%;
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 4px;
-            transform: rotate(-10deg);
-            box-shadow: -2px 4px 8px rgba(0,0,0,0.15);
+            right: 10px;
+            top: 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(160, 220, 255, 0.5) 50%, rgba(42, 163, 251, 0.8) 100%);
+            box-shadow: inset -5px -5px 12px rgba(11, 75, 147, 0.4), 0 8px 18px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
         }
 
-        .box-line {
-            height: 2px;
-            background: linear-gradient(90deg, red, yellow, blue);
-            margin-bottom: 2px;
+        /* 3D 입체 알약 1 */
+        .pill-3d-1 {
+            position: absolute;
+            right: 45px;
+            bottom: 12px;
+            width: 60px;
+            height: 26px;
+            border-radius: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #c1e3ff 100%);
+            transform: rotate(-28deg);
+            box-shadow: inset -3px -3px 6px rgba(11, 75, 147, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 1), 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .box-txt {
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.55rem;
-            font-weight: 900;
-            color: #111;
-        }
-
-        .book-title {
-            margin-top: 10px;
-            font-family: 'Jua', sans-serif;
-            font-size: 1.05rem;
-            color: #0b417a;
-            text-align: center;
-            letter-spacing: -0.3px;
-        }
-
-        .catalog-footer-note {
-            text-align: center;
-            font-family: 'Jua', sans-serif;
-            font-size: 0.78rem;
-            color: #7998b5;
-            margin-top: 8px;
-        }
-
-        /* 5. 홈페이지 링크 박스 (독립된 흰색 카드 형태 적용) */
-        .homepage-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 12px 14px;
-            margin-bottom: 10px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-            text-decoration: none;
-            display: block;
-            transition: transform 0.2s;
-        }
-
-        .homepage-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .homepage-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .homepage-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hp-text-group .hp-title {
-            font-family: 'Jua', sans-serif;
-            font-size: 1.15rem;
-            color: #222222;
-            margin-bottom: 2px;
-        }
-
-        .hp-text-group .hp-sub {
-            font-family: 'Jua', sans-serif;
-            font-size: 0.78rem;
-            color: #88a3be;
-            letter-spacing: 0.3px;
-        }
-
-        .click-btn-group {
-            display: flex;
-            gap: 4px;
-        }
-
-        .btn-box {
-            background-color: #38a8fd;
-            color: white;
-            font-family: 'Jua', sans-serif;
-            font-size: 1.1rem;
-            padding: 5px 11px;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(56, 168, 253, 0.25);
-        }
-
-        .btn-box.dark {
-            background-color: #1780d8;
+        /* 3D 입체 알약 2 (미니) */
+        .pill-3d-2 {
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #38a8fd 100%);
+            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 1. 원형 로고 -->
-        <div class="logo-circle">
-            <img src="logo.png" alt="제이메디 로고" class="logo-img">
-        </div>
-
-        <!-- 2. 상단 헤더 문구 -->
-        <h1 class="header-title">모바일 책자 바로가기</h1>
-        <p class="header-sub">[모바일 책자를 보시려면 아래의 사진을 클릭해주세요!]</p>
-
-        <!-- 3. 카탈로그 영역 (PART 1) -->
-        <div class="card-section section-catalog">
-            <div class="badge-header">
-                <span class="badge-title">2026 CATALOG</span>
+        <!-- 1번 3D 입체 그래픽 메디컬 컷 배너 -->
+        <div class="top-banner-3d">
+            <div class="banner-glow"></div>
+            
+            <div class="banner-text-group">
+                <span class="banner-badge">JMEDI 2026</span>
+                <h2 class="banner-title">당신의 건강한 내일을 연결합니다</h2>
+                <p class="banner-sub">제이메디 공식 모바일 카탈로그</p>
             </div>
 
-            <div class="catalog-grid">
-                <!-- 왼쪽 책자 -->
-                <a href="#" class="catalog-item">
-                    <div class="book-cover">
-                        <div>
-                            <div class="cover-header">JMEDI</div>
-                            <div class="cover-title">2026 CATALOG</div>
-                        </div>
-                        <div class="cover-visual">
-                            <div class="blister">
-                                <div class="mini-pill p-red"></div>
-                                <div class="mini-pill p-yellow"></div>
-                                <div class="mini-pill p-blue"></div>
-                            </div>
-                            <div class="cover-box">
-                                <div class="box-line"></div>
-                                <div class="box-txt">JMEDI</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book-title">2026 제이메디 책자</div>
-                </a>
-
-                <!-- 오른쪽 책자 -->
-                <a href="#" class="catalog-item">
-                    <div class="book-cover">
-                        <div>
-                            <div class="cover-header">JMEDI</div>
-                            <div class="cover-title">2026 CATALOG</div>
-                        </div>
-                        <div class="cover-visual">
-                            <div class="blister">
-                                <div class="mini-pill p-red"></div>
-                                <div class="mini-pill p-yellow"></div>
-                                <div class="mini-pill p-blue"></div>
-                            </div>
-                            <div class="cover-box">
-                                <div class="box-line"></div>
-                                <div class="box-txt">JMEDI</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book-title">역매품 책자</div>
-                </a>
+            <!-- 우측 3D 그래픽 아트웍 -->
+            <div class="graphic-container">
+                <div class="sphere-glass"></div>
+                <div class="pill-3d-1"></div>
+                <div class="pill-3d-2"></div>
             </div>
-
-            <p class="catalog-footer-note">[2026 제이메디 모바일 책자입니다!]</p>
-        </div>
-
-        <!-- 4. HOMEPAGE 영역 (PART 2) -->
-        <div class="card-section section-homepage">
-            <div class="badge-header">
-                <span class="badge-title">HOMEPAGE</span>
-            </div>
-
-            <!-- 위: 제이메디 -->
-            <a href="https://jmedi.kr" target="_blank" class="homepage-card">
-                <div class="homepage-content">
-                    <div class="hp-text-group">
-                        <div class="hp-title">제이메디</div>
-                        <div class="hp-sub">제이메디 공식홈페이지</div>
-                    </div>
-                    <div class="click-btn-group">
-                        <div class="btn-box">클</div>
-                        <div class="btn-box dark">릭</div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 아래: 제이헬스 -->
-            <a href="https://smartstore.naver.com/jhealth" target="_blank" class="homepage-card">
-                <div class="homepage-content">
-                    <div class="hp-text-group">
-                        <div class="hp-title">제이헬스</div>
-                        <div class="hp-sub">건강기능식품 사이트</div>
-                    </div>
-                    <div class="click-btn-group">
-                        <div class="btn-box">클</div>
-                        <div class="btn-box dark">릭</div>
-                    </div>
-                </div>
-            </a>
         </div>
     </div>
 
