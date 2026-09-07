@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제이메디 모바일 책자 - 1번 3D 그래픽 배너</title>
+    <title>제이메디 모바일 책자 - 2번 실사 메디컬 배너</title>
     <!-- 웹폰트 불러오기 (Jua, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&family=Jua&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -36,53 +36,68 @@
         }
 
         /* ----------------------------------------------------
-           [1번 3D 입체 그래픽 메디컬 배너 컷]
+           [2번 실사 라이프스타일/메디컬 배너 컷]
         ---------------------------------------------------- */
-        .top-banner-3d {
+        .top-banner-lifestyle {
             width: 100%;
             height: 170px;
-            background: linear-gradient(135deg, #0b5293 0%, #2aa3fb 55%, #7ed0ff 100%);
             border-radius: 22px;
-            padding: 22px 20px;
-            margin-bottom: 24px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(11, 75, 147, 0.25);
+            box-shadow: 0 10px 25px rgba(11, 75, 147, 0.22);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 22px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* 3D 배경 광원 효과 */
-        .banner-glow {
+        /* 실사 배경 이미지 & 필터 오버레이 */
+        .banner-bg-img {
             position: absolute;
-            top: -40px;
-            right: -20px;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop') center/cover no-repeat;
+            filter: blur(1.5px) brightness(0.9);
+            transform: scale(1.05); /* 블러 가장자리 방지 */
+            z-index: 1;
+        }
+
+        /* 블루 톤 듀오톤 필터 */
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(11, 75, 147, 0.82) 0%, rgba(42, 163, 251, 0.65) 60%, rgba(255, 255, 255, 0.25) 100%);
+            z-index: 2;
         }
 
         /* 텍스트 영역 */
-        .banner-text-group {
+        .banner-content {
             position: relative;
-            z-index: 2;
-            max-width: 65%;
+            z-index: 3;
+            max-width: 80%;
         }
 
-        .banner-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.22);
+        .banner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(8px);
             color: #ffffff;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
+            font-family: 'Gothic A1', sans-serif;
+            font-weight: 700;
             padding: 3px 10px;
             border-radius: 12px;
             margin-bottom: 8px;
             letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .banner-title {
@@ -90,86 +105,62 @@
             font-size: 1.35rem;
             line-height: 1.25;
             margin-bottom: 6px;
-            text-shadow: 0 2px 6px rgba(0, 20, 50, 0.25);
+            text-shadow: 0 2px 8px rgba(0, 20, 50, 0.35);
             word-break: keep-all;
         }
 
-        .banner-sub {
-            color: #dbeeff;
+        .banner-desc {
+            color: #e3f2ff;
             font-size: 0.78rem;
             font-family: 'Gothic A1', sans-serif;
-            font-weight: 700;
+            font-weight: 500;
             letter-spacing: -0.2px;
+            opacity: 0.95;
         }
 
-        /* 입체 3D 그래픽 요소 연출 (우측) */
-        .graphic-container {
+        .trust-badge {
             position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 130px;
-            height: 130px;
-            z-index: 1;
-        }
-
-        /* 3D 입체 투명 구체 */
-        .sphere-glass {
-            position: absolute;
-            right: 10px;
-            top: 15px;
-            width: 70px;
-            height: 70px;
+            right: 18px;
+            bottom: 16px;
+            z-index: 3;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(160, 220, 255, 0.5) 50%, rgba(42, 163, 251, 0.8) 100%);
-            box-shadow: inset -5px -5px 12px rgba(11, 75, 147, 0.4), 0 8px 18px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        /* 3D 입체 알약 1 */
-        .pill-3d-1 {
-            position: absolute;
-            right: 45px;
-            bottom: 12px;
-            width: 60px;
-            height: 26px;
-            border-radius: 20px;
-            background: linear-gradient(180deg, #ffffff 0%, #c1e3ff 100%);
-            transform: rotate(-28deg);
-            box-shadow: inset -3px -3px 6px rgba(11, 75, 147, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 1), 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* 3D 입체 알약 2 (미니) */
-        .pill-3d-2 {
-            position: absolute;
-            right: 5px;
-            top: 10px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #38a8fd 100%);
-            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+        .trust-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 1번 3D 입체 그래픽 메디컬 컷 배너 -->
-        <div class="top-banner-3d">
-            <div class="banner-glow"></div>
+        <!-- 2번 실사 라이프스타일/메디컬 배너 -->
+        <div class="top-banner-lifestyle">
+            <div class="banner-bg-img"></div>
+            <div class="banner-overlay"></div>
             
-            <div class="banner-text-group">
-                <span class="banner-badge">JMEDI 2026</span>
-                <h2 class="banner-title">당신의 건강한 내일을 연결합니다</h2>
-                <p class="banner-sub">제이메디 공식 모바일 카탈로그</p>
+            <div class="banner-content">
+                <span class="banner-tag">TRUSTED PARTNER</span>
+                <h2 class="banner-title">믿을 수 있는 건강 파트너, 제이메디</h2>
+                <p class="banner-desc">엄선된 건강기능식품 전문 모바일 카탈로그</p>
             </div>
 
-            <!-- 우측 3D 그래픽 아트웍 -->
-            <div class="graphic-container">
-                <div class="sphere-glass"></div>
-                <div class="pill-3d-1"></div>
-                <div class="pill-3d-2"></div>
+            <!-- 우측 신뢰 메디컬 아이콘 -->
+            <div class="trust-badge">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
             </div>
         </div>
     </div>
