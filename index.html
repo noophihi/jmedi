@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제이메디 모바일 책자</title>
+    <!-- 웹폰트 (Jua, Gamja Flower, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
@@ -251,26 +252,26 @@
             margin-top: 6px;
         }
 
-        /* 5. 홈페이지 영산 */
-        .homepage-link {
+        /* 5. 링크/버튼 공통 스타일 */
+        .link-item {
             text-decoration: none;
             display: block;
             padding: 6px 4px;
         }
 
-        .homepage-content {
+        .link-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .hp-text-group .hp-title {
+        .text-group .item-title {
             font-family: 'Jua', sans-serif;
             font-size: 1.15rem;
             color: #555555;
         }
 
-        .hp-text-group .hp-sub {
+        .text-group .item-sub {
             font-family: 'Jua', sans-serif;
             font-size: 0.78rem;
             color: #bbbbbb;
@@ -302,34 +303,30 @@
             margin: 10px 0;
         }
 
-        /* -------------------------------------------
-           6. [수정됨] 스크롤바가 눈에 잘 보이는 카테고리 영역
-        ------------------------------------------- */
+        /* 6. 카테고리 영역 */
         .category-section {
             width: 100%;
             margin-top: 4px;
         }
 
-        /* 스크롤 가이드 박스 */
         .category-scroll {
             display: flex;
             gap: 8px;
             overflow-x: auto;
             padding-bottom: 12px;
             margin-bottom: 14px;
-            -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* 스크롤바 눈에 보이도록 다듬기 */
         .category-scroll::-webkit-scrollbar {
-            height: 6px; /* 스크롤바 두께 */
+            height: 6px;
         }
         .category-scroll::-webkit-scrollbar-track {
-            background: #e2f0fc; /* 스크롤 트랙 배경 */
+            background: #e2f0fc;
             border-radius: 10px;
         }
         .category-scroll::-webkit-scrollbar-thumb {
-            background: #8ec5fc; /* 이동하는 바 색상 */
+            background: #8ec5fc;
             border-radius: 10px;
         }
 
@@ -345,7 +342,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-            flex-shrink: 0; /* 버튼 크기 줄어들지 않도록 설정 */
+            flex-shrink: 0;
         }
 
         .cat-chip.active {
@@ -402,13 +399,16 @@
     </svg>
 
     <div class="container">
+        <!-- 원형 로고 -->
         <div class="logo-circle">
             <img src="logo.png" alt="제이메디 로고" class="logo-img">
         </div>
 
+        <!-- 헤더 문구 -->
         <h1 class="header-title">모바일 책자 바로가기</h1>
         <p class="header-sub">[모바일 책자를 보시려면 아래의 사진을 클릭해주세요!]</p>
 
+        <!-- CATALOG 섹션 -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">2026 CATALOG</span>
@@ -461,16 +461,17 @@
             <p class="catalog-footer-note">[2026 제이메디 모바일 책자입니다!]</p>
         </div>
 
+        <!-- HOMEPAGE 섹션 -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">HOMEPAGE</span>
             </div>
 
-            <a href="https://jmedi.kr" target="_blank" class="homepage-link">
-                <div class="homepage-content">
-                    <div class="hp-text-group">
-                        <div class="hp-title">제이메디</div>
-                        <div class="hp-sub">제이메디 공식홈페이지</div>
+            <a href="https://jmedi.kr" target="_blank" class="link-item">
+                <div class="link-content">
+                    <div class="text-group">
+                        <div class="item-title">제이메디</div>
+                        <div class="item-sub">제이메디 공식홈페이지</div>
                     </div>
                     <div class="click-btn-group">
                         <div class="btn-box">클</div>
@@ -481,11 +482,11 @@
 
             <div class="hp-divider"></div>
 
-            <a href="https://smartstore.naver.com/jhealth" target="_blank" class="homepage-link">
-                <div class="homepage-content">
-                    <div class="hp-text-group">
-                        <div class="hp-title">제이헬스</div>
-                        <div class="hp-sub">건강기능식품 사이트</div>
+            <a href="https://smartstore.naver.com/jhealth" target="_blank" class="link-item">
+                <div class="link-content">
+                    <div class="text-group">
+                        <div class="item-title">제이헬스</div>
+                        <div class="item-sub">건강기능식품 사이트</div>
                     </div>
                     <div class="click-btn-group">
                         <div class="btn-box">클</div>
@@ -495,6 +496,27 @@
             </a>
         </div>
 
+        <!-- [신규 추가] 이달의 소식 섹션 -->
+        <div class="card-section">
+            <div class="badge-header">
+                <span class="badge-title">MONTHLY NEWS</span>
+            </div>
+
+            <a href="#" class="link-item">
+                <div class="link-content">
+                    <div class="text-group">
+                        <div class="item-title">이달의 소식</div>
+                        <div class="item-sub">신제품 소식 및 행사 안내</div>
+                    </div>
+                    <div class="click-btn-group">
+                        <div class="btn-box">클</div>
+                        <div class="btn-box dark">릭</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 카테고리 필터 섹션 -->
         <div class="category-section">
             <div class="category-scroll">
                 <button class="cat-chip active" data-filter="all">전체보기</button>
@@ -527,6 +549,7 @@
         </div>
     </div>
 
+    <!-- 필터 스크립트 -->
     <script>
         const buttons = document.querySelectorAll('.cat-chip');
         const cards = document.querySelectorAll('.product-card');
