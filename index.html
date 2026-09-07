@@ -15,9 +15,8 @@
             box-sizing: border-box;
         }
 
-        /* 1. 바깥 배경 (보내주신 이미지 패턴 구현) */
         body {
-            background-color: #c0dbf4; /* 전체 바탕 하늘색 */
+            background-color: #c0dbf4;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -28,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* 하단 물결 그래픽 연출 */
         .wave-bg {
             position: fixed;
             bottom: 0;
@@ -39,7 +37,6 @@
             pointer-events: none;
         }
 
-        /* 2. 중앙 컨텐츠 보드 */
         .container {
             width: 100%;
             max-width: 400px;
@@ -51,7 +48,7 @@
             z-index: 1;
         }
 
-        /* 3. 상단 원형 로고 */
+        /* 1. 상단 원형 로고 */
         .logo-circle {
             width: 85px;
             height: 85px;
@@ -72,7 +69,7 @@
             object-fit: contain;
         }
 
-        /* 4. 상단 헤더 문구 */
+        /* 2. 상단 헤더 문구 */
         .header-title {
             font-family: 'Jua', sans-serif;
             font-size: 1.65rem;
@@ -91,7 +88,7 @@
             letter-spacing: -0.3px;
         }
 
-        /* 5. 흰색 라운드 섹션 카드 */
+        /* 3. 흰색 카드 공통 섹션 */
         .card-section {
             width: 100%;
             background-color: #ffffff;
@@ -102,7 +99,6 @@
             position: relative;
         }
 
-        /* 뱃지 라인 타이틀 헤더 */
         .badge-header {
             display: flex;
             align-items: center;
@@ -134,7 +130,7 @@
             box-shadow: 0 3px 6px rgba(42, 163, 251, 0.25);
         }
 
-        /* 6. 카탈로그 책자 리스트 (2열 배치) */
+        /* 4. 카탈로그 영역 */
         .catalog-grid {
             display: flex;
             justify-content: space-between;
@@ -151,7 +147,6 @@
             cursor: pointer;
         }
 
-        /* 책자 커버 프레임 */
         .book-cover {
             width: 100%;
             aspect-ratio: 1 / 1.35;
@@ -182,7 +177,6 @@
             margin-top: 1px;
         }
 
-        /* 입체 알약 포장 그래픽 */
         .cover-visual {
             position: relative;
             height: 60%;
@@ -240,7 +234,6 @@
             color: #111;
         }
 
-        /* 책자 하단 둥근 제목 */
         .book-title {
             margin-top: 12px;
             font-family: 'Jua', sans-serif;
@@ -258,7 +251,7 @@
             margin-top: 6px;
         }
 
-        /* 7. 홈페이지 링크 스타일 */
+        /* 5. 홈페이지 영산 */
         .homepage-link {
             text-decoration: none;
             display: block;
@@ -275,7 +268,6 @@
             font-family: 'Jua', sans-serif;
             font-size: 1.15rem;
             color: #555555;
-            margin-bottom: 0px;
         }
 
         .hp-text-group .hp-sub {
@@ -304,29 +296,41 @@
             background-color: #88beee;
         }
 
-        /* 두 항목 사이 구분선 */
         .hp-divider {
             height: 1px;
             background-color: #eef5fa;
             margin: 10px 0;
         }
 
-        /* 8. 새로 추가된 카테고리 선택 영역 스타일 */
+        /* -------------------------------------------
+           6. [수정됨] 스크롤바가 눈에 잘 보이는 카테고리 영역
+        ------------------------------------------- */
         .category-section {
             width: 100%;
             margin-top: 4px;
         }
 
+        /* 스크롤 가이드 박스 */
         .category-scroll {
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding-bottom: 8px;
+            padding-bottom: 12px;
             margin-bottom: 14px;
-            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
         }
+
+        /* 스크롤바 눈에 보이도록 다듬기 */
         .category-scroll::-webkit-scrollbar {
-            display: none;
+            height: 6px; /* 스크롤바 두께 */
+        }
+        .category-scroll::-webkit-scrollbar-track {
+            background: #e2f0fc; /* 스크롤 트랙 배경 */
+            border-radius: 10px;
+        }
+        .category-scroll::-webkit-scrollbar-thumb {
+            background: #8ec5fc; /* 이동하는 바 색상 */
+            border-radius: 10px;
         }
 
         .cat-chip {
@@ -341,6 +345,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            flex-shrink: 0; /* 버튼 크기 줄어들지 않도록 설정 */
         }
 
         .cat-chip.active {
