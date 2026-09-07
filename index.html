@@ -252,7 +252,7 @@
             margin-top: 6px;
         }
 
-        /* 5. 링크/버튼 공통 스타일 */
+        /* 5. 홈페이지 링크/버튼 스타일 */
         .link-item {
             text-decoration: none;
             display: block;
@@ -307,6 +307,7 @@
         .category-section {
             width: 100%;
             margin-top: 4px;
+            margin-bottom: 18px;
         }
 
         .category-scroll {
@@ -388,6 +389,11 @@
             font-family: 'Jua', sans-serif;
             font-size: 0.95rem;
             color: #333333;
+        }
+
+        /* 7. 이달의 소식 커스텀 영역 컨테이너 */
+        .monthly-news-content {
+            min-height: 80px; /* 기본 여백 공간 확보 */
         }
     </style>
 </head>
@@ -496,26 +502,6 @@
             </a>
         </div>
 
-        <!-- [신규 추가] 이달의 소식 섹션 -->
-        <div class="card-section">
-            <div class="badge-header">
-                <span class="badge-title">MONTHLY NEWS</span>
-            </div>
-
-            <a href="#" class="link-item">
-                <div class="link-content">
-                    <div class="text-group">
-                        <div class="item-title">이달의 소식</div>
-                        <div class="item-sub">신제품 소식 및 행사 안내</div>
-                    </div>
-                    <div class="click-btn-group">
-                        <div class="btn-box">클</div>
-                        <div class="btn-box dark">릭</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
         <!-- 카테고리 필터 섹션 -->
         <div class="category-section">
             <div class="category-scroll">
@@ -545,6 +531,17 @@
                     <div class="product-img-box">⚡</div>
                     <div class="product-title">고함량 홍삼액</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- [맨 하단] 이달의 소식 섹션 (내부 공간 비워둠) -->
+        <div class="card-section">
+            <div class="badge-header">
+                <span class="badge-title">이달의 소식</span>
+            </div>
+            
+            <div class="monthly-news-content">
+                <!-- 이곳에 원하시는 꾸미기 요소나 이미지, 텍스트를 넣으시면 됩니다. -->
             </div>
         </div>
     </div>
