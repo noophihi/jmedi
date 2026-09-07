@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제이메디 모바일 책자 - 4번 친근한 일러스트 배너</title>
+    <title>제이메디 모바일 책자</title>
     <!-- 웹폰트 불러오기 (Jua, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&family=Jua&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -22,8 +22,9 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 30px 0;
+            padding: 20px 0 40px 0;
             font-family: 'Jua', 'Gothic A1', sans-serif;
+            color: #333;
         }
 
         .container {
@@ -36,169 +37,208 @@
         }
 
         /* ----------------------------------------------------
-           [4번 친근한 일러스트 배너 컷]
+           [상단 배너 비워둔 영역 (직접 제작하신 이미지 들어갈 곳)]
         ---------------------------------------------------- */
-        .top-banner-illust {
+        .banner-placeholder {
             width: 100%;
             height: 170px;
-            background: linear-gradient(135deg, #3aa5f8 0%, #6bc1ff 60%, #9dd7ff 100%);
             border-radius: 22px;
-            padding: 22px 20px;
-            margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(58, 165, 248, 0.25);
+            border: 2px dashed #93c5fd;
+            background: rgba(255, 255, 255, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            align-items: center;
+            margin-bottom: 20px;
+            color: #2563eb;
+            font-size: 0.95rem;
+            text-align: center;
+            gap: 6px;
         }
 
-        /* 배경 구름 패턴 효과 */
-        .cloud-pattern {
-            position: absolute;
-            bottom: -10px;
-            left: 0;
+        /* 직접 만드신 이미지를 넣으실 경우, 
+           <div class="banner-placeholder"> 대신 <img class="custom-banner" src="이미지주소" /> 로 교체하시면 됩니다. */
+        .custom-banner {
             width: 100%;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            transform: scaleX(1.3);
-            pointer-events: none;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(11, 75, 147, 0.15);
         }
 
-        /* 텍스트 영역 */
-        .banner-illust-text {
-            position: relative;
-            z-index: 2;
-            max-width: 65%;
+        /* ----------------------------------------------------
+           [하단 카탈로그 본문 영역]
+        ---------------------------------------------------- */
+        /* 카테고리 탭 / 필터 */
+        .category-scroll {
+            width: 100%;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            scrollbar-width: none; /* 스크롤바 숨김 */
+        }
+        .category-scroll::-webkit-scrollbar {
+            display: none;
         }
 
-        .banner-chip {
-            display: inline-block;
-            background: #ffffff;
-            color: #1780d8;
-            font-size: 0.72rem;
+        .cat-chip {
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            color: #1e40af;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-family: 'Jua', sans-serif;
-            padding: 3px 10px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        .banner-title {
+        .cat-chip.active {
+            background: #2563eb;
             color: #ffffff;
-            font-size: 1.35rem;
-            line-height: 1.25;
-            margin-bottom: 6px;
-            text-shadow: 0 2px 4px rgba(0, 50, 110, 0.18);
-            word-break: keep-all;
+            border-color: #2563eb;
         }
 
-        .banner-sub {
-            color: #f0f8ff;
-            font-size: 0.8rem;
-            font-family: 'Jua', sans-serif;
-            letter-spacing: -0.2px;
-            opacity: 0.95;
+        /* 제품 카드 그리드 */
+        .product-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        /* 우측 일러스트 아트웍 요소 */
-        .illust-artwork {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 110px;
-            height: 110px;
-            z-index: 2;
-        }
-
-        /* 약 상자 일러스트 캐릭터 */
-        .illust-box {
-            position: absolute;
-            bottom: 10px;
-            right: 15px;
-            width: 50px;
-            height: 60px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(11, 75, 147, 0.15);
+        .product-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 18px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 6px 16px rgba(11, 75, 147, 0.08);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 100px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            transform: rotate(-8deg);
-            border: 2px solid #e1f0ff;
+            margin-bottom: 10px;
+            font-size: 2rem;
         }
 
-        .illust-box-line {
-            width: 28px;
-            height: 4px;
-            background: #2aa3fb;
-            border-radius: 2px;
+        .product-title {
+            font-size: 0.95rem;
+            color: #1e293b;
             margin-bottom: 4px;
+            word-break: keep-all;
         }
 
-        .illust-box-cross {
-            width: 16px;
-            height: 16px;
-            background: #ff5252;
-            clip-path: polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%);
+        .product-desc {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-family: 'Gothic A1', sans-serif;
+            font-weight: 500;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
-        /* 귀여운 알약 일러스트 */
-        .illust-pill {
-            position: absolute;
-            top: 8px;
-            right: 48px;
-            width: 42px;
-            height: 20px;
-            background: linear-gradient(90deg, #ff7675 50%, #ffffff 50%);
-            border-radius: 10px;
-            transform: rotate(25deg);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .product-price {
+            font-size: 0.9rem;
+            color: #2563eb;
+            font-weight: bold;
+            margin-top: auto;
         }
 
-        /* 퐁퐁 떠있는 하트 엠블럼 */
-        .illust-heart {
-            position: absolute;
-            top: 10px;
-            right: 8px;
-            font-size: 1.2rem;
-            animation: float 2s ease-in-out infinite alternate;
+        /* 하단 하단 안내 / 문의 섹션 */
+        .footer-info {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 0.75rem;
+            color: #475569;
+            line-height: 1.5;
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-6px) rotate(12deg); }
+        .footer-info strong {
+            color: #1e3a8a;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 4번 친근한 일러스트 배너 -->
-        <div class="top-banner-illust">
-            <div class="cloud-pattern"></div>
-            
-            <div class="banner-illust-text">
-                <span class="banner-chip">유쾌한 건강 상식 💊</span>
-                <h2 class="banner-title">제이메디가 선사하는 즐거운 일상!</h2>
-                <p class="banner-sub">모바일 책자로 편리하게 만나보세요</p>
+        
+        <!-- 1. 상단 배너 비워둔 영역 (직접 만든 이미지 넣는 공간) -->
+        <div class="banner-placeholder">
+            <span>🖼️ 제작하신 배너 이미지를 넣는 공간입니다</span>
+            <span style="font-size: 0.75rem; opacity: 0.8;">(권장 사이즈: 420px × 170px)</span>
+        </div>
+
+        <!-- 2. 카테고리 필터 -->
+        <div class="category-scroll">
+            <button class="cat-chip active">전체보기</button>
+            <button class="cat-chip">비타민/유산균</button>
+            <button class="cat-chip">관절/뼈건강</button>
+            <button class="cat-chip">면역/피로개선</button>
+        </div>
+
+        <!-- 3. 제품 리스트 (그리드 레이아웃) -->
+        <div class="product-grid">
+            <!-- 제품 1 -->
+            <div class="product-card">
+                <div class="product-img-box">💊</div>
+                <h3 class="product-title">제이메디 멀티비타민</h3>
+                <p class="product-desc">하루 한 알로 채우는 필수 영양소</p>
+                <span class="product-price">도매가 문의</span>
             </div>
 
-            <!-- 우측 친근한 일러스트 요소 -->
-            <div class="illust-artwork">
-                <div class="illust-pill"></div>
-                <div class="illust-box">
-                    <div class="illust-box-line"></div>
-                    <div class="illust-box-cross"></div>
-                </div>
-                <div class="illust-heart">❤️</div>
+            <!-- 제품 2 -->
+            <div class="product-card">
+                <div class="product-img-box">🌿</div>
+                <h3 class="product-title">프로바이오틱스 유산균</h3>
+                <p class="product-desc">장 건강을 위한 100억 생유산균</p>
+                <span class="product-price">도매가 문의</span>
+            </div>
+
+            <!-- 제품 3 -->
+            <div class="product-card">
+                <div class="product-img-box">🦴</div>
+                <h3 class="product-title">관절엔 프리미엄 MSM</h3>
+                <p class="product-desc">관절 및 연골 건강을 위한 선택</p>
+                <span class="product-price">도매가 문의</span>
+            </div>
+
+            <!-- 제품 4 -->
+            <div class="product-card">
+                <div class="product-img-box">🐟</div>
+                <h3 class="product-title">rTG 초임계 오메가3</h3>
+                <p class="product-desc">체내 흡수율이 높은 고순도 오메가3</p>
+                <span class="product-price">도매가 문의</span>
             </div>
         </div>
+
+        <!-- 4. 하단 기업 정보/문의 안내 -->
+        <div class="footer-info">
+            <strong>jhealth (제이메디)</strong><br>
+            건강기능식품 전문 도매 유통 모바일 브로슈어<br>
+            제품 발주 및 도매 공급 문의는 담당자에게 연락 바랍니다.
+        </div>
+
     </div>
 
 </body>
