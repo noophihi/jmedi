@@ -4,241 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제이메디 모바일 책자</title>
-    <!-- 웹폰트 불러오기 (Jua, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;900&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Jua', sans-serif;
         }
 
+        /* 원래 전체 배경 (블루 톤 자연스러운 그라데이션) */
         body {
-            background: linear-gradient(180deg, #d8eaff 0%, #cbe3fd 40%, #badafb 100%);
+            background: linear-gradient(180deg, #cbe3fc 0%, #badafb 50%, #9bc2f2 100%);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 20px 0 40px 0;
-            font-family: 'Jua', 'Gothic A1', sans-serif;
-            color: #333;
+            padding: 25px 0 40px 0;
         }
 
         .container {
             width: 100%;
-            max-width: 420px;
+            max-width: 380px;
             padding: 0 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* ----------------------------------------------------
-           [상단 배너 비워둔 영역 (직접 제작하신 이미지 들어갈 곳)]
-        ---------------------------------------------------- */
-        .banner-placeholder {
-            width: 100%;
-            height: 170px;
-            border-radius: 22px;
-            border: 2px dashed #93c5fd;
-            background: rgba(255, 255, 255, 0.4);
+        /* 1. 원래 로고 및 헤더 */
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #5ba3f5;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
-            color: #2563eb;
-            font-size: 0.95rem;
-            text-align: center;
-            gap: 6px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(11, 75, 138, 0.15);
+            overflow: hidden;
         }
 
-        /* 직접 만드신 이미지를 넣으실 경우, 
-           <div class="banner-placeholder"> 대신 <img class="custom-banner" src="이미지주소" /> 로 교체하시면 됩니다. */
-        .custom-banner {
+        .logo-img {
             width: 100%;
-            height: 170px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 22px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(11, 75, 147, 0.15);
         }
 
-        /* ----------------------------------------------------
-           [하단 카탈로그 본문 영역]
-        ---------------------------------------------------- */
-        /* 카테고리 탭 / 필터 */
-        .category-scroll {
-            width: 100%;
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            scrollbar-width: none; /* 스크롤바 숨김 */
-        }
-        .category-scroll::-webkit-scrollbar {
-            display: none;
+        .header-title {
+            font-size: 1.55rem;
+            color: #0b4b8a;
+            margin-bottom: 4px;
+            text-align: center;
         }
 
-        .cat-chip {
-            white-space: nowrap;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            color: #1e40af;
-            padding: 8px 16px;
-            border-radius: 20px;
+        .header-sub {
             font-size: 0.85rem;
-            font-family: 'Jua', sans-serif;
-            cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-
-        .cat-chip.active {
-            background: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
-        }
-
-        /* 제품 카드 그리드 */
-        .product-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            color: #4a7ca5;
             margin-bottom: 24px;
+            text-align: center;
         }
 
-        .product-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 18px;
-            padding: 14px;
+        /* 2. 원래 하얀색 섹션 카드 (자연스러운 톤 변화 및 고리 탭) */
+        .card-section {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 24px 16px 18px 16px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 상단 고리 탭 (예시 이미지 연결 방식 반영) */
+        .card-section::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 8px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .section-catalog::before { background-color: #38a8fd; }
+        .section-homepage::before { background-color: #1780d8; }
+
+        /* 뱃지 헤더 */
+        .badge-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .badge-header::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #cfe6fb;
+            z-index: 1;
+        }
+
+        .badge-title {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            font-size: 1.2rem;
+            padding: 4px 20px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-catalog .badge-title { background-color: #38a8fd; }
+        .section-homepage .badge-title { background-color: #1780d8; }
+
+        /* 3. 원래 책자 리스트 (2열 배치) */
+        .catalog-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .catalog-item {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 6px 16px rgba(11, 75, 147, 0.08);
+            text-decoration: none;
         }
 
-        .product-img-box {
+        .book-img {
             width: 100%;
-            height: 100px;
-            background: #f1f5f9;
-            border-radius: 12px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .book-title {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            color: #0b417a;
+            text-align: center;
+        }
+
+        .catalog-footer-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #88a3be;
+            margin-top: 6px;
+        }
+
+        /* 4. 원래 홈페이지 버튼 영역 */
+        .homepage-content {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-size: 2rem;
+            padding: 4px 0;
         }
 
-        .product-title {
-            font-size: 0.95rem;
-            color: #1e293b;
-            margin-bottom: 4px;
-            word-break: keep-all;
+        .hp-text-group .hp-title {
+            font-size: 1.15rem;
+            color: #333333;
+            margin-bottom: 2px;
         }
 
-        .product-desc {
-            font-size: 0.75rem;
-            color: #64748b;
-            font-family: 'Gothic A1', sans-serif;
-            font-weight: 500;
-            margin-bottom: 8px;
-            line-height: 1.3;
+        .hp-text-group .hp-sub {
+            font-size: 0.78rem;
+            color: #a0a0a0;
         }
 
-        .product-price {
-            font-size: 0.9rem;
-            color: #2563eb;
-            font-weight: bold;
-            margin-top: auto;
+        .click-btn-group {
+            display: flex;
+            gap: 4px;
         }
 
-        /* 하단 하단 안내 / 문의 섹션 */
-        .footer-info {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            padding: 16px;
-            text-align: center;
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.75rem;
-            color: #475569;
-            line-height: 1.5;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+        .btn-box {
+            background-color: #38a8fd;
+            color: white;
+            font-size: 1.1rem;
+            padding: 5px 11px;
+            border-radius: 8px;
         }
 
-        .footer-info strong {
-            color: #1e3a8a;
+        .btn-box.dark {
+            background-color: #1780d8;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <!-- 1. 상단 배너 비워둔 영역 (직접 만든 이미지 넣는 공간) -->
-        <div class="banner-placeholder">
-            <span>🖼️ 제작하신 배너 이미지를 넣는 공간입니다</span>
-            <span style="font-size: 0.75rem; opacity: 0.8;">(권장 사이즈: 420px × 170px)</span>
+        <div class="logo-circle">
+            <img src="logo.png" alt="제이메디 로고" class="logo-img">
         </div>
 
-        <!-- 2. 카테고리 필터 -->
-        <div class="category-scroll">
-            <button class="cat-chip active">전체보기</button>
-            <button class="cat-chip">비타민/유산균</button>
-            <button class="cat-chip">관절/뼈건강</button>
-            <button class="cat-chip">면역/피로개선</button>
+        <h1 class="header-title">모바일 책자 바로가기</h1>
+        <p class="header-sub">[모바일 책자를 보시려면 아래의 사진을 클릭해주세요!]</p>
+
+        <div class="card-section section-catalog">
+            <div class="badge-header">
+                <span class="badge-title">2026 CATALOG</span>
+            </div>
+
+            <div class="catalog-grid">
+                <a href="#" class="catalog-item">
+                    <img src="book1.png" alt="2026 제이메디 책자" class="book-img">
+                    <div class="book-title">2026 제이메디 책자</div>
+                </a>
+
+                <a href="#" class="catalog-item">
+                    <img src="book2.png" alt="역매품 책자" class="book-img">
+                    <div class="book-title">역매품 책자</div>
+                </a>
+            </div>
+
+            <p class="catalog-footer-note">[2026 제이메디 모바일 책자입니다!]</p>
         </div>
 
-        <!-- 3. 제품 리스트 (그리드 레이아웃) -->
-        <div class="product-grid">
-            <!-- 제품 1 -->
-            <div class="product-card">
-                <div class="product-img-box">💊</div>
-                <h3 class="product-title">제이메디 멀티비타민</h3>
-                <p class="product-desc">하루 한 알로 채우는 필수 영양소</p>
-                <span class="product-price">도매가 문의</span>
+        <div class="card-section section-homepage">
+            <div class="badge-header">
+                <span class="badge-title">HOMEPAGE</span>
             </div>
 
-            <!-- 제품 2 -->
-            <div class="product-card">
-                <div class="product-img-box">🌿</div>
-                <h3 class="product-title">프로바이오틱스 유산균</h3>
-                <p class="product-desc">장 건강을 위한 100억 생유산균</p>
-                <span class="product-price">도매가 문의</span>
-            </div>
-
-            <!-- 제품 3 -->
-            <div class="product-card">
-                <div class="product-img-box">🦴</div>
-                <h3 class="product-title">관절엔 프리미엄 MSM</h3>
-                <p class="product-desc">관절 및 연골 건강을 위한 선택</p>
-                <span class="product-price">도매가 문의</span>
-            </div>
-
-            <!-- 제품 4 -->
-            <div class="product-card">
-                <div class="product-img-box">🐟</div>
-                <h3 class="product-title">rTG 초임계 오메가3</h3>
-                <p class="product-desc">체내 흡수율이 높은 고순도 오메가3</p>
-                <span class="product-price">도매가 문의</span>
-            </div>
+            <a href="https://jmedi.kr" target="_blank" style="text-decoration: none;">
+                <div class="homepage-content">
+                    <div class="hp-text-group">
+                        <div class="hp-title">제이메디 웹사이트</div>
+                        <div class="hp-sub">JMEDI WEBSITE</div>
+                    </div>
+                    <div class="click-btn-group">
+                        <div class="btn-box">클</div>
+                        <div class="btn-box dark">릭</div>
+                    </div>
+                </div>
+            </a>
         </div>
-
-        <!-- 4. 하단 기업 정보/문의 안내 -->
-        <div class="footer-info">
-            <strong>jhealth (제이메디)</strong><br>
-            건강기능식품 전문 도매 유통 모바일 브로슈어<br>
-            제품 발주 및 도매 공급 문의는 담당자에게 연락 바랍니다.
-        </div>
-
     </div>
 
 </body>
