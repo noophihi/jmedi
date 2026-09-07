@@ -6,88 +6,108 @@
     <title>제이메디 모바일 책자</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Jua', sans-serif;
         }
 
-        /* 배경: 올려주신 바탕화면 파란색 그라데이션 및 물결 톤 */
+        /* 1. 바깥 배경 (보내주신 이미지 패턴 구현) */
         body {
-            background: linear-gradient(180deg, #badafb 0%, #a8d4ff 40%, #8ec5fc 100%);
+            background-color: #c0dbf4; /* 전체 바탕 하늘색 */
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 25px 0 40px 0;
+            padding: 20px 0 60px 0;
+            font-family: 'Jua', 'Gamja Flower', 'Gothic A1', sans-serif;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* 하단 물결 그래픽 연출 */
+        .wave-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 2. 중앙 컨텐츠 보드 */
         .container {
             width: 100%;
-            max-width: 380px;
-            padding: 0 16px;
+            max-width: 400px;
+            padding: 10px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        /* ----------------------------------------------------
-           1. 상단 원본 레이아웃 (로고, 헤더, 카탈로그, 홈페이지)
-        ---------------------------------------------------- */
+        /* 3. 상단 원형 로고 */
         .logo-circle {
             width: 85px;
             height: 85px;
-            background-color: #5ba3f5;
+            background-color: #ffffff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(11, 75, 138, 0.15);
+            margin-bottom: 14px;
+            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08);
             overflow: hidden;
-            border: 3px solid #ffffff;
+            padding: 8px;
         }
 
         .logo-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
+        /* 4. 상단 헤더 문구 */
         .header-title {
-            font-size: 1.55rem;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.65rem;
             color: #0b4b8a;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             text-align: center;
+            letter-spacing: -0.5px;
         }
 
         .header-sub {
+            font-family: 'Jua', sans-serif;
             font-size: 0.85rem;
-            color: #4a7ca5;
+            color: #5d92c0;
             margin-bottom: 22px;
             text-align: center;
+            letter-spacing: -0.3px;
         }
 
-        /* 하얀색 카드 세션 */
+        /* 5. 흰색 라운드 섹션 카드 */
         .card-section {
             width: 100%;
             background-color: #ffffff;
             border-radius: 22px;
-            padding: 22px 16px 18px 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            padding: 20px 16px 16px 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
-        /* 뱃지 헤더 */
+        /* 뱃지 라인 타이틀 헤더 */
         .badge-header {
             display: flex;
             align-items: center;
             position: relative;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .badge-header::after {
@@ -97,28 +117,29 @@
             top: 50%;
             width: 100%;
             height: 2px;
-            background-color: #72c1ff;
+            background-color: #a8d7fb;
             z-index: 1;
         }
 
         .badge-title {
             position: relative;
             z-index: 2;
-            background-color: #38a8fd;
+            background: #2aa3fb;
             color: #ffffff;
-            font-size: 1.15rem;
-            padding: 5px 18px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.25rem;
+            padding: 3px 20px;
             border-radius: 20px;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 6px rgba(56, 168, 253, 0.3);
+            box-shadow: 0 3px 6px rgba(42, 163, 251, 0.25);
         }
 
-        /* 카탈로그 책자 리스트 (2열) */
+        /* 6. 카탈로그 책자 리스트 (2열 배치) */
         .catalog-grid {
             display: flex;
             justify-content: space-between;
             gap: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .catalog-item {
@@ -127,106 +148,207 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .book-img {
+        /* 책자 커버 프레임 */
+        .book-cover {
             width: 100%;
-            height: auto;
+            aspect-ratio: 1 / 1.35;
+            background: linear-gradient(180deg, #d2ebf9 0%, #eef7fc 100%);
             border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c9e3f5;
         }
 
+        .cover-header {
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: #0b5293;
+            line-height: 1.1;
+        }
+
+        .cover-title {
+            font-family: 'Jua', sans-serif;
+            font-size: 0.8rem;
+            color: #111;
+            margin-top: 1px;
+        }
+
+        /* 입체 알약 포장 그래픽 */
+        .cover-visual {
+            position: relative;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blister {
+            width: 52%;
+            height: 72%;
+            background: rgba(255,255,255,0.85);
+            border-radius: 6px;
+            border: 1px solid #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 2px;
+            transform: rotate(-6deg);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .mini-pill {
+            width: 18px;
+            height: 8px;
+            border-radius: 4px;
+        }
+        .p-red { background: #e53935; }
+        .p-yellow { background: #fbc02d; }
+        .p-blue { background: #1e88e5; }
+
+        .cover-box {
+            position: absolute;
+            bottom: 0;
+            left: 8%;
+            width: 78%;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 4px;
+            transform: rotate(-10deg);
+            box-shadow: -2px 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .box-line {
+            height: 2px;
+            background: linear-gradient(90deg, red, yellow, blue);
+            margin-bottom: 2px;
+        }
+
+        .box-txt {
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: #111;
+        }
+
+        /* 책자 하단 둥근 제목 */
         .book-title {
-            margin-top: 10px;
-            font-size: 1.05rem;
+            margin-top: 12px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.1rem;
             color: #0b417a;
             text-align: center;
+            letter-spacing: -0.3px;
         }
 
         .catalog-footer-note {
             text-align: center;
+            font-family: 'Jua', sans-serif;
             font-size: 0.78rem;
-            color: #88a3be;
-            margin-top: 4px;
+            color: #999999;
+            margin-top: 6px;
         }
 
-        /* 홈페이지 버튼 영역 */
+        /* 7. 홈페이지 링크 스타일 */
+        .homepage-link {
+            text-decoration: none;
+            display: block;
+            padding: 6px 4px;
+        }
+
         .homepage-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 4px 0;
         }
 
         .hp-text-group .hp-title {
+            font-family: 'Jua', sans-serif;
             font-size: 1.15rem;
-            color: #333333;
-            margin-bottom: 2px;
+            color: #555555;
+            margin-bottom: 0px;
         }
 
         .hp-text-group .hp-sub {
+            font-family: 'Jua', sans-serif;
             font-size: 0.78rem;
-            color: #a0a0a0;
+            color: #bbbbbb;
+            letter-spacing: 0.3px;
         }
 
         .click-btn-group {
             display: flex;
-            gap: 4px;
+            gap: 5px;
         }
 
         .btn-box {
-            background-color: #63b8ff;
+            background-color: #38a8fd;
             color: white;
-            font-size: 1.1rem;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.15rem;
             padding: 6px 12px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 6px rgba(56, 168, 253, 0.25);
         }
 
-        /* ----------------------------------------------------
-           2. 새로 추가된 하단 클릭 가능 카테고리 & 제품 섹션
-        ---------------------------------------------------- */
+        .btn-box.dark {
+            background-color: #88beee;
+        }
+
+        /* 두 항목 사이 구분선 */
+        .hp-divider {
+            height: 1px;
+            background-color: #eef5fa;
+            margin: 10px 0;
+        }
+
+        /* 8. 새로 추가된 카테고리 선택 영역 스타일 */
         .category-section {
             width: 100%;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* 카테고리 가로 스크롤 버튼들 */
         .category-scroll {
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 12px;
-            scrollbar-width: none; /* 스크롤바 숨김 */
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+            scrollbar-width: none;
         }
         .category-scroll::-webkit-scrollbar {
             display: none;
         }
 
-        /* 기본 카테고리 버튼 */
         .cat-chip {
             white-space: nowrap;
             background-color: #ffffff;
-            color: #1780d8;
+            color: #0b4b8a;
             border: none;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-family: 'Jua', sans-serif;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
         }
 
-        /* 클릭해서 선택된 버튼 (파란색 활성화) */
         .cat-chip.active {
-            background-color: #2563eb;
+            background-color: #2aa3fb;
             color: #ffffff;
-            font-weight: bold;
-            box-shadow: 0 3px 8px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 3px 8px rgba(42, 163, 251, 0.35);
         }
 
-        /* 제품 카드 그리드 */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -242,18 +364,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.2s;
         }
 
-        /* 카테고리 안 맞을 때 숨김 처리 */
         .product-card.hide {
             display: none;
         }
 
         .product-img-box {
             width: 100%;
-            height: 95px;
-            background-color: #f1f5f9;
+            height: 90px;
+            background-color: #f2f7fc;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -263,21 +383,20 @@
         }
 
         .product-title {
+            font-family: 'Jua', sans-serif;
             font-size: 0.95rem;
-            color: #1e293b;
-            margin-bottom: 4px;
-        }
-
-        .product-price {
-            font-size: 0.8rem;
-            color: #2563eb;
+            color: #333333;
         }
     </style>
 </head>
 <body>
 
+    <svg class="wave-bg" viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M0,100 C150,150 200,80 350,110 C420,125 470,100 500,90 L500,150 L0,150 Z" fill="#d3e9f9"></path>
+        <path d="M0,120 C180,90 300,140 500,100 L500,150 L0,150 Z" fill="#71bdf2" opacity="0.8"></path>
+    </svg>
+
     <div class="container">
-        
         <div class="logo-circle">
             <img src="logo.png" alt="제이메디 로고" class="logo-img">
         </div>
@@ -292,12 +411,44 @@
 
             <div class="catalog-grid">
                 <a href="#" class="catalog-item">
-                    <img src="book1.png" alt="2026 제이메디 책자" class="book-img">
+                    <div class="book-cover">
+                        <div>
+                            <div class="cover-header">JMEDI</div>
+                            <div class="cover-title">2026 CATALOG</div>
+                        </div>
+                        <div class="cover-visual">
+                            <div class="blister">
+                                <div class="mini-pill p-red"></div>
+                                <div class="mini-pill p-yellow"></div>
+                                <div class="mini-pill p-blue"></div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="box-line"></div>
+                                <div class="box-txt">JMEDI</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
                 <a href="#" class="catalog-item">
-                    <img src="book2.png" alt="역매품 책자" class="book-img">
+                    <div class="book-cover">
+                        <div>
+                            <div class="cover-header">JMEDI</div>
+                            <div class="cover-title">2026 CATALOG</div>
+                        </div>
+                        <div class="cover-visual">
+                            <div class="blister">
+                                <div class="mini-pill p-red"></div>
+                                <div class="mini-pill p-yellow"></div>
+                                <div class="mini-pill p-blue"></div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="box-line"></div>
+                                <div class="box-txt">JMEDI</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="book-title">역매품 책자</div>
                 </a>
             </div>
@@ -310,15 +461,30 @@
                 <span class="badge-title">HOMEPAGE</span>
             </div>
 
-            <a href="https://jmedi.kr" target="_blank" style="text-decoration: none;">
+            <a href="https://jmedi.kr" target="_blank" class="homepage-link">
                 <div class="homepage-content">
                     <div class="hp-text-group">
-                        <div class="hp-title">제이메디 웹사이트</div>
-                        <div class="hp-sub">JMEDI WEBSITE</div>
+                        <div class="hp-title">제이메디</div>
+                        <div class="hp-sub">제이메디 공식홈페이지</div>
                     </div>
                     <div class="click-btn-group">
                         <div class="btn-box">클</div>
-                        <div class="btn-box">릭</div>
+                        <div class="btn-box dark">릭</div>
+                    </div>
+                </div>
+            </a>
+
+            <div class="hp-divider"></div>
+
+            <a href="https://smartstore.naver.com/jhealth" target="_blank" class="homepage-link">
+                <div class="homepage-content">
+                    <div class="hp-text-group">
+                        <div class="hp-title">제이헬스</div>
+                        <div class="hp-sub">건강기능식품 사이트</div>
+                    </div>
+                    <div class="click-btn-group">
+                        <div class="btn-box">클</div>
+                        <div class="btn-box dark">릭</div>
                     </div>
                 </div>
             </a>
@@ -336,29 +502,24 @@
                 <div class="product-card" data-category="vitamin">
                     <div class="product-img-box">💊</div>
                     <div class="product-title">멀티비타민</div>
-                    <div class="product-price">자세히 보기</div>
                 </div>
 
                 <div class="product-card" data-category="vitamin">
                     <div class="product-img-box">🌿</div>
                     <div class="product-title">생유산균 100억</div>
-                    <div class="product-price">자세히 보기</div>
                 </div>
 
                 <div class="product-card" data-category="joint">
                     <div class="product-img-box">🦴</div>
                     <div class="product-title">관절 MSM</div>
-                    <div class="product-price">자세히 보기</div>
                 </div>
 
                 <div class="product-card" data-category="immunity">
                     <div class="product-img-box">⚡</div>
                     <div class="product-title">고함량 홍삼액</div>
-                    <div class="product-price">자세히 보기</div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script>
@@ -367,14 +528,11 @@
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                // 1. 기존 파란색 활성화 해제 후 클릭한 버튼 파란색으로 변경
                 buttons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
-                // 2. 선택한 카테고리 이름 가져오기
                 const filter = button.getAttribute('data-filter');
 
-                // 3. 일치하는 제품만 보여주고 나머지는 hide 처리
                 cards.forEach(card => {
                     const category = card.getAttribute('data-category');
                     if (filter === 'all' || filter === category) {
