@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제이메디 모바일 책자</title>
-    <!-- 귀엽고 둥근 동글동글한 웹폰트 불러오기 (Jua, Gamja Flower, Gothic A1) -->
+    <!-- 동글동글한 웹폰트 불러오기 (Jua, Gamja Flower, Gothic A1) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
@@ -36,29 +36,26 @@
             align-items: center;
         }
 
-        /* 1. 상단 원형 로고 */
+        /* 1. 상단 원형 로고 (logo.png) */
         .logo-circle {
             width: 85px;
             height: 85px;
-            background-color: #72b2e4;
+            background-color: #ffffff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 14px;
-            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.1);
+            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 8px;
         }
 
-        .logo-text-jm {
-            font-family: 'Gothic A1', sans-serif;
-            font-weight: 900;
-            font-size: 2.1rem;
-            font-style: italic;
-            letter-spacing: -1.5px;
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-
-        .logo-text-jm .j { color: #ea2328; }
-        .logo-text-jm .m { color: #005bac; }
 
         /* 2. 상단 헤더 문구 */
         .header-title {
@@ -246,7 +243,12 @@
             margin-top: 6px;
         }
 
-        /* 5. 홈페이지 링크 영역 */
+        /* 5. 홈페이지 링크 공통 스타일 */
+        .homepage-link {
+            text-decoration: none;
+            display: block;
+        }
+
         .homepage-content {
             display: flex;
             justify-content: space-between;
@@ -292,11 +294,9 @@
 <body>
 
     <div class="container">
-        <!-- 1. 원형 로고 -->
+        <!-- 1. 원형 로고 (logo.png) -->
         <div class="logo-circle">
-            <div class="logo-text-jm">
-                <span class="j">J</span><span class="m">M</span>
-            </div>
+            <img src="logo.png" alt="제이메디 로고" class="logo-img">
         </div>
 
         <!-- 2. 상단 헤더 문구 -->
@@ -358,22 +358,44 @@
             <p class="catalog-footer-note">[2026 제이메디 모바일 책자입니다!]</p>
         </div>
 
-        <!-- 4. 홈페이지 링크 영역 -->
+        <!-- 4. 제이메디 홈페이지 링크 영역 -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">HOMEPAGE</span>
             </div>
 
-            <div class="homepage-content">
-                <div class="hp-text-group">
-                    <div class="hp-title">제이메디 웹사이트</div>
-                    <div class="hp-sub">JMEDI WEBSITE</div>
+            <a href="https://jmedi.kr" target="_blank" class="homepage-link">
+                <div class="homepage-content">
+                    <div class="hp-text-group">
+                        <div class="hp-title">제이메디 웹사이트</div>
+                        <div class="hp-sub">JMEDI WEBSITE</div>
+                    </div>
+                    <div class="click-btn-group">
+                        <div class="btn-box">클</div>
+                        <div class="btn-box dark">릭</div>
+                    </div>
                 </div>
-                <div class="click-btn-group">
-                    <div class="btn-box">클</div>
-                    <div class="btn-box dark">릭</div>
-                </div>
+            </a>
+        </div>
+
+        <!-- 5. 제이헬스 건강기능식품 사이트 링크 영역 -->
+        <div class="card-section">
+            <div class="badge-header">
+                <span class="badge-title">JHEALTH</span>
             </div>
+
+            <a href="https://smartstore.naver.com/jhealth" target="_blank" class="homepage-link">
+                <div class="homepage-content">
+                    <div class="hp-text-group">
+                        <div class="hp-title">제이헬스</div>
+                        <div class="hp-sub">건강기능식품 사이트</div>
+                    </div>
+                    <div class="click-btn-group">
+                        <div class="btn-box">클</div>
+                        <div class="btn-box dark">릭</div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
