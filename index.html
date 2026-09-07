@@ -3,181 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 JMEDI CATALOG</title>
-    <!-- 두껍고 정갈한 한글 고딕 폰트 적용 -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <title>JMEDI 2026 CATALOG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
 
         body {
-            background-color: #f0f0f0;
+            background-color: #f0f4f8;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            font-family: 'Noto Sans KR', sans-serif;
         }
 
-        .container {
+        /* 메인 카탈로그 카드 컨테이너 */
+        .catalog-card {
             width: 100%;
-            max-width: 420px; /* 원본 이미지의 좁은 모바일 세로 비율 */
-            height: 750px;
-            background-color: #ebebeb; /* 원본의 밝은 회색 배경 */
+            max-width: 440px;
+            background: linear-gradient(180deg, #e8f4f9 0%, #f7fbfd 60%, #e2f0f7 100%);
+            padding: 30px 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
             display: flex;
             flex-direction: column;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
             overflow: hidden;
+            min-height: 700px;
         }
 
-        /* --- 1. 상단 헤더 --- */
-        header {
-            padding: 18px 18px 10px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* 1. 상단 우측 연락처 */
+        .contact-info {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #333333;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 20px;
         }
 
-        .header-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #555555;
-            letter-spacing: -0.3px;
+        /* 2. 타이틀 영역 */
+        .header-section {
+            margin-bottom: 25px;
         }
 
-        .logo-group {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* 로고 모양 그래픽 고도화 */
-        .logo-symbol {
-            display: flex;
-            align-items: center;
+        .title-jmedi {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
             font-weight: 900;
-            font-style: italic;
-            font-size: 1.1rem;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
         }
 
-        .logo-symbol .j { color: #f21f1e; }
-        .logo-symbol .m { color: #006eb9; }
-
-        .logo-text {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #444444;
+        .title-catalog {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0d1b2a;
             letter-spacing: -0.5px;
+            margin-top: 2px;
         }
 
-        /* --- 2. 메인 타이틀 박스 --- */
-        .title-section {
-            padding: 15px 18px 25px 18px;
+        /* 3. 중간 설명 & QR 영역 */
+        .middle-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .sub-description {
+            font-size: 0.85rem;
+            color: #2b2b2b;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .qr-box {
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 75px;
+            height: 75px;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-label {
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #000000;
+            margin-top: 4px;
+        }
+
+        /* 4. 제품/입체 이미지 그래픽 영역 */
+        .product-visual {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* PTP 알약 포장재 */
+        .blister-pack {
+            width: 130px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 15px 10px;
+            box-shadow: 0 8px 20px rgba(0,131,176,0.15);
+            backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            gap: 15px;
+            align-items: center;
+            transform: rotate(-5deg);
+            z-index: 2;
         }
 
-        /* 하늘색 배경 '제이메디' 박스 */
-        .box-jmedi {
-            background-color: #b5e7ff;
-            color: #0b68a8;
-            font-size: 1.9rem;
-            font-weight: 900;
-            padding: 2px 8px;
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            display: inline-block;
-        }
-
-        /* 파란색 배경 '카탈로그' 박스 */
-        .box-catalog {
-            background-color: #0b68a8;
-            color: #ffffff;
-            font-size: 1.9rem;
-            font-weight: 900;
-            padding: 2px 8px;
-            margin-left: 58px; /* 이미지처럼 우측으로 엇갈리게 배치 */
-            margin-top: 2px;
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            display: inline-block;
-        }
-
-        /* --- 3. 중간 파란색 배너 --- */
-        .banner-section {
-            background-color: #0b68a8;
-            color: #ffffff;
-            padding: 22px 18px;
-            height: 110px;
+        .pill-pocket {
+            width: 90px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(220,235,245,0.8) 100%);
+            border-radius: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.05);
             display: flex;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
         }
 
-        .banner-section p {
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
+        .pill {
+            width: 32px;
+            height: 16px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
 
-        /* --- 4. 하단 배경 및 3중 물결 --- */
-        .footer-section {
-            flex: 1;
-            background-color: #ebebeb;
-            position: relative;
-        }
+        .pill.red { background: linear-gradient(135deg, #ff4e50, #f9d423); }
+        .pill.yellow { background: linear-gradient(135deg, #f7ff00, #db7093); }
+        .pill.blue { background: linear-gradient(135deg, #00c6ff, #0072ff); }
 
-        .wave-svg {
+        /* 제이메디 제품 상자 */
+        .medicine-box {
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 160px;
-            display: block;
+            left: 20px;
+            width: 220px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: -5px 10px 25px rgba(0,0,0,0.12);
+            transform: rotate(-12deg);
+            z-index: 3;
+        }
+
+        .box-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, #f21f1e 0% 33%, #f8b100 33% 66%, #006eb9 66% 100%);
+            margin-bottom: 8px;
+        }
+
+        .box-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #111111;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .box-sub {
+            font-size: 0.75rem;
+            color: #555555;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        /* 5. 하단 브랜드 로고 */
+        .footer-logo {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .gc-icon {
+            width: 14px;
+            height: 14px;
+            background-color: #2e7d32;
+            border-radius: 50% 0 50% 50%;
+        }
+
+        .gc-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            color: #1b5e20;
+            letter-spacing: -0.3px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 1. 헤더 영역 -->
-        <header>
-            <div class="header-title">2026 JMEDI CATALOG</div>
-            <div class="logo-group">
-                <div class="logo-symbol">
-                    <span class="j">J</span><span class="m">M</span>
-                </div>
-                <div class="logo-text">(주) 제이메디</div>
+    <div class="catalog-card">
+        <div class="contact-info">
+            📞 010.5008.8573<br>
+            ✉️ greencomma77@naver.com
+        </div>
+
+        <div class="header-section">
+            <div class="title-jmedi">JMEDI</div>
+            <div class="title-catalog">2026 CATALOG</div>
+        </div>
+
+        <div class="middle-section">
+            <div class="sub-description">
+                JMEDI | 의약품 도매, 건강기능식품<br>
+                GREEN COMMA | 기프트숍
             </div>
-        </header>
-
-        <!-- 2. 박스 형태 제목 영역 -->
-        <div class="title-section">
-            <div class="box-jmedi">제이메디</div>
-            <div class="box-catalog">카탈로그</div>
+            <div class="qr-box">
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://noophihi.github.io/jmedi/" alt="QR Code">
+                </div>
+                <div class="qr-label">모바일 책자 바로가기</div>
+            </div>
         </div>
 
-        <!-- 3. 중앙 파란색 띠 배너 -->
-        <div class="banner-section">
-            <p>2026 제이메디 카탈로그 입니다.</p>
+        <div class="product-visual">
+            <div class="blister-pack">
+                <div class="pill-pocket"><div class="pill red"></div></div>
+                <div class="pill-pocket"><div class="pill yellow"></div></div>
+                <div class="pill-pocket"><div class="pill blue"></div></div>
+            </div>
+
+            <div class="medicine-box">
+                <div class="box-stripe"></div>
+                <div class="box-title">JMEDI</div>
+                <div class="box-sub">Health functional food</div>
+            </div>
         </div>
 
-        <!-- 4. 하단 영역 & 원본과 유사한 3단계 곡선 물결 -->
-        <div class="footer-section">
-            <svg class="wave-svg" viewBox="0 0 420 160" preserveAspectRatio="none">
-                <!-- 제일 뒤 연한 물결 -->
-                <path d="M 0,110 Q 130,50 260,110 T 420,80 L 420,160 L 0,160 Z" fill="#c3e2ff"></path>
-                <!-- 중간 물결 -->
-                <path d="M 0,130 Q 140,80 270,120 T 420,100 L 420,160 L 0,160 Z" fill="#90c4f8"></path>
-                <!-- 맨 앞 진한 물결 -->
-                <path d="M 0,115 Q 120,160 250,110 T 420,130 L 420,160 L 0,160 Z" fill="#70a8f1"></path>
-            </svg>
+        <div class="footer-logo">
+            <div class="gc-icon"></div>
+            <div class="gc-text">GREEN COMMA</div>
         </div>
     </div>
 
