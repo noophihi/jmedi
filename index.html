@@ -148,23 +148,7 @@
             cursor: pointer;
         }
 
-        /* 기본 퍼블리싱용 책 커버 스타일 (1번 책자용) */
-        .book-cover {
-            width: 100%;
-            aspect-ratio: 1 / 1.35;
-            background: linear-gradient(180deg, #d2ebf9 0%, #eef7fc 100%);
-            border-radius: 6px;
-            padding: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #c9e3f5;
-        }
-
-        /* 이미지 표지 적용용 스타일 (2번 책자용) */
+        /* 이미지 표지 공통 스타일 */
         .book-cover-img {
             width: 100%;
             aspect-ratio: 1 / 1.35;
@@ -172,78 +156,6 @@
             border-radius: 6px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.12);
             border: 1px solid #c9e3f5;
-        }
-
-        .cover-header {
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.55rem;
-            font-weight: 900;
-            color: #0b5293;
-            line-height: 1.1;
-        }
-
-        .cover-title {
-            font-family: 'Jua', sans-serif;
-            font-size: 0.8rem;
-            color: #111;
-            margin-top: 1px;
-        }
-
-        .cover-visual {
-            position: relative;
-            height: 60%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .blister {
-            width: 52%;
-            height: 72%;
-            background: rgba(255,255,255,0.85);
-            border-radius: 6px;
-            border: 1px solid #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            padding: 2px;
-            transform: rotate(-6deg);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .mini-pill {
-            width: 18px;
-            height: 8px;
-            border-radius: 4px;
-        }
-        .p-red { background: #e53935; }
-        .p-yellow { background: #fbc02d; }
-        .p-blue { background: #1e88e5; }
-
-        .cover-box {
-            position: absolute;
-            bottom: 0;
-            left: 8%;
-            width: 78%;
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 4px;
-            transform: rotate(-10deg);
-            box-shadow: -2px 4px 8px rgba(0,0,0,0.15);
-        }
-
-        .box-line {
-            height: 2px;
-            background: linear-gradient(90deg, red, yellow, blue);
-            margin-bottom: 2px;
-        }
-
-        .box-txt {
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.55rem;
-            font-weight: 900;
-            color: #111;
         }
 
         .book-title {
@@ -432,29 +344,13 @@
             </div>
 
             <div class="catalog-grid">
-                <!-- 1번 책자 (왼쪽: 준비 중) -->
+                <!-- 1번 책자 (catalog.png 표지 적용) -->
                 <a href="#" class="catalog-item">
-                    <div class="book-cover">
-                        <div>
-                            <div class="cover-header">JMEDI</div>
-                            <div class="cover-title">2026 CATALOG</div>
-                        </div>
-                        <div class="cover-visual">
-                            <div class="blister">
-                                <div class="mini-pill p-red"></div>
-                                <div class="mini-pill p-yellow"></div>
-                                <div class="mini-pill p-blue"></div>
-                            </div>
-                            <div class="cover-box">
-                                <div class="box-line"></div>
-                                <div class="box-txt">JMEDI</div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
-                <!-- 2번 책자 (오른쪽: catalog2.png 표지 적용 + catalog2.pdf 연동) -->
+                <!-- 2번 책자 (catalog2.png 표지 + catalog2.pdf 연동) -->
                 <a href="catalog2.pdf" target="_blank" class="catalog-item">
                     <img src="catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
                     <div class="book-title">역매품 책자</div>
