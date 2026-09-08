@@ -289,6 +289,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-decoration: none; /* 링크 밑줄 제거 */
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
         }
 
         .product-card.hide {
@@ -417,11 +425,11 @@
             <!-- 제품 카드 목록 -->
             <div class="product-grid">
                 <!-- 잇몸건강: 이모스틴 -->
-                <div class="product-card" data-category="gum">
+                <a href="https://smartstore.naver.com/jhealth/products/5670670853" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/이모스틴.png" alt="이모스틴" class="product-img">
                     <div class="product-title">이모스틴</div>
                     <div class="product-desc">1,450mgX60X2 (4개월)</div>
-                </div>
+                </a>
             </div>
         </div>
 
