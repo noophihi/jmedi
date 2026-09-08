@@ -283,7 +283,7 @@
         .product-card {
             background-color: #ffffff;
             border-radius: 18px;
-            padding: 14px;
+            padding: 12px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             display: flex;
@@ -295,22 +295,29 @@
             display: none;
         }
 
-        .product-img-box {
+        .product-img {
             width: 100%;
-            height: 90px;
-            background-color: #f2f7fc;
+            height: 110px;
+            object-fit: contain;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
             margin-bottom: 8px;
+            background-color: #f2f7fc;
         }
 
         .product-title {
             font-family: 'Jua', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #333333;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .product-desc {
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 0.75rem;
+            color: #888888;
+            line-height: 1.3;
+            word-break: keep-all;
         }
 
         /* 7. 이달의 소식 영역 */
@@ -329,7 +336,7 @@
     <div class="container">
         <!-- 원형 로고 -->
         <div class="logo-circle">
-            <img src="logo.png" alt="제이메디 로고" class="logo-img">
+            <img src="jmedi_image/logo.png" alt="제이메디 로고" class="logo-img">
         </div>
 
         <!-- 헤더 문구 -->
@@ -345,13 +352,13 @@
             <div class="catalog-grid">
                 <!-- 1번 책자 -->
                 <a href="#" class="catalog-item">
-                    <img src="catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
+                    <img src="jmedi_image/catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
                 <!-- 2번 책자 -->
                 <a href="catalog2.pdf" target="_blank" class="catalog-item">
-                    <img src="catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
+                    <img src="jmedi_image/catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
                     <div class="book-title">역매품 책자</div>
                 </a>
             </div>
@@ -407,11 +414,13 @@
                 <button class="cat-chip" data-filter="etc">기타</button>
             </div>
 
-            <!-- 제품 카드 목록 (임시 카드 - 카테고리별 작성 예정) -->
+            <!-- 제품 카드 목록 -->
             <div class="product-grid">
+                <!-- 잇몸건강: 이모스틴 -->
                 <div class="product-card" data-category="gum">
-                    <div class="product-img-box">🦷</div>
-                    <div class="product-title">잇몸 건강 제품</div>
+                    <img src="jmedi_image/이모스틴.png" alt="이모스틴" class="product-img">
+                    <div class="product-title">이모스틴</div>
+                    <div class="product-desc">잇몸 건강을 위한 영양제</div>
                 </div>
             </div>
         </div>
@@ -423,7 +432,7 @@
             </div>
             
             <div class="monthly-news-content">
-                <!-- 직접 작성/디자인하실 공간 -->
+                <!-- 작성 공간 -->
             </div>
         </div>
     </div>
@@ -433,7 +442,6 @@
         const buttons = document.querySelectorAll('.cat-chip');
         const cards = document.querySelectorAll('.product-card');
 
-        // 초기 화면 설정 (첫 번째 active 탭에 맞는 카드로 필터링)
         const initialFilter = document.querySelector('.cat-chip.active').getAttribute('data-filter');
         filterProducts(initialFilter);
 
