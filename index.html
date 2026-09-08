@@ -148,7 +148,6 @@
             cursor: pointer;
         }
 
-        /* 이미지 표지 공통 스타일 */
         .book-cover-img {
             width: 100%;
             aspect-ratio: 1 / 1.35;
@@ -344,13 +343,13 @@
             </div>
 
             <div class="catalog-grid">
-                <!-- 1번 책자 (catalog.png 표지 적용) -->
+                <!-- 1번 책자 -->
                 <a href="#" class="catalog-item">
                     <img src="catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
-                <!-- 2번 책자 (catalog2.png 표지 + catalog2.pdf 연동) -->
+                <!-- 2번 책자 -->
                 <a href="catalog2.pdf" target="_blank" class="catalog-item">
                     <img src="catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
                     <div class="book-title">역매품 책자</div>
@@ -398,31 +397,21 @@
         <!-- 카테고리 필터 섹션 -->
         <div class="category-section">
             <div class="category-scroll">
-                <button class="cat-chip active" data-filter="all">전체보기</button>
-                <button class="cat-chip" data-filter="vitamin">비타민/유산균</button>
-                <button class="cat-chip" data-filter="joint">관절/뼈건강</button>
-                <button class="cat-chip" data-filter="immunity">면역/피로개선</button>
+                <button class="cat-chip active" data-filter="gum">잇몸건강</button>
+                <button class="cat-chip" data-filter="eye">눈건강</button>
+                <button class="cat-chip" data-filter="probiotics">유산균</button>
+                <button class="cat-chip" data-filter="circulation">혈행개선</button>
+                <button class="cat-chip" data-filter="joint">관절건강</button>
+                <button class="cat-chip" data-filter="vitamin">영양제</button>
+                <button class="cat-chip" data-filter="yeast">효모제품</button>
+                <button class="cat-chip" data-filter="etc">기타</button>
             </div>
 
+            <!-- 제품 카드 목록 (임시 카드 - 카테고리별 작성 예정) -->
             <div class="product-grid">
-                <div class="product-card" data-category="vitamin">
-                    <div class="product-img-box">💊</div>
-                    <div class="product-title">멀티비타민</div>
-                </div>
-
-                <div class="product-card" data-category="vitamin">
-                    <div class="product-img-box">🌿</div>
-                    <div class="product-title">생유산균 100억</div>
-                </div>
-
-                <div class="product-card" data-category="joint">
-                    <div class="product-img-box">🦴</div>
-                    <div class="product-title">관절 MSM</div>
-                </div>
-
-                <div class="product-card" data-category="immunity">
-                    <div class="product-img-box">⚡</div>
-                    <div class="product-title">고함량 홍삼액</div>
+                <div class="product-card" data-category="gum">
+                    <div class="product-img-box">🦷</div>
+                    <div class="product-title">잇몸 건강 제품</div>
                 </div>
             </div>
         </div>
@@ -444,23 +433,30 @@
         const buttons = document.querySelectorAll('.cat-chip');
         const cards = document.querySelectorAll('.product-card');
 
+        // 초기 화면 설정 (첫 번째 active 탭에 맞는 카드로 필터링)
+        const initialFilter = document.querySelector('.cat-chip.active').getAttribute('data-filter');
+        filterProducts(initialFilter);
+
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 buttons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
                 const filter = button.getAttribute('data-filter');
-
-                cards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || filter === category) {
-                        card.classList.remove('hide');
-                    } else {
-                        card.classList.add('hide');
-                    }
-                });
+                filterProducts(filter);
             });
         });
+
+        function filterProducts(filter) {
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === category) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
     </script>
 </body>
 </html>
