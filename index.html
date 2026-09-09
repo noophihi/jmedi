@@ -328,9 +328,35 @@
             word-break: keep-all;
         }
 
-        /* 7. 이달의 소식 영역 */
+        /* 7. 이달의 소식 영역 (QR 코드 관련 스타일) */
         .monthly-news-content {
-            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .qr-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e1f0fc;
+            margin-bottom: 10px;
+        }
+
+        .qr-text-title {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.05rem;
+            color: #0b4b8a;
+            margin-bottom: 4px;
+        }
+
+        .qr-text-sub {
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 0.78rem;
+            color: #888888;
         }
     </style>
 </head>
@@ -425,28 +451,24 @@
             <!-- 제품 카드 목록 -->
             <div class="product-grid">
                 <!-- ================= 잇몸건강 ================= -->
-                <!-- 잇몸건강 1: 이모스틴 -->
                 <a href="https://naver.me/5p0C6qaA" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/이모스틴.png" alt="이모스틴" class="product-img">
                     <div class="product-title">이모스틴</div>
                     <div class="product-desc">60TX2 (4개월)</div>
                 </a>
 
-                <!-- 잇몸건강 2: 알베로 프리미엄 골드 -->
                 <a href="https://naver.me/5t7zD4Be" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/알베로.jpg" alt="알베로 프리미엄 골드" class="product-img">
                     <div class="product-title">알베로 프리미엄 골드</div>
                     <div class="product-desc">60TX2 (4개월)</div>
                 </a>
 
-                <!-- 잇몸건강 3: 슈퍼인사튼 골드 -->
                 <a href="https://naver.me/IMZvOZDk" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/슈퍼인사튼튼.jpg" alt="슈퍼인사튼 골드" class="product-img">
                     <div class="product-title">슈퍼인사튼 골드</div>
                     <div class="product-desc">60TX2 (4개월)</div>
                 </a>
 
-                <!-- 잇몸건강 4: 아보스틴 케이 -->
                 <a href="https://naver.me/5RANSqfM" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/아보스틴케이.png" alt="아보스틴 케이" class="product-img">
                     <div class="product-title">아보스틴 케이</div>
@@ -454,28 +476,24 @@
                 </a>
 
                 <!-- ================= 눈건강 ================= -->
-                <!-- 눈건강 1: 루테인 파워플러스 -->
                 <a href="https://naver.me/xbKPssoe" target="_blank" class="product-card" data-category="eye">
                     <img src="jmedi_image/루테인파워플러스.jpg" alt="루테인 파워플러스" class="product-img">
                     <div class="product-title">루테인 파워플러스</div>
                     <div class="product-desc">60CX2 (4개월)</div>
                 </a>
 
-                <!-- 눈건강 2: 파워 루테인킹 -->
                 <a href="https://naver.me/F6Q2LLf0" target="_blank" class="product-card" data-category="eye">
                     <img src="jmedi_image/파워루테인킹.png" alt="파워 루테인킹" class="product-img">
                     <div class="product-title">파워 루테인킹</div>
                     <div class="product-desc">60CX2 (4개월)</div>
                 </a>
 
-                <!-- 눈건강 3: 리얼골드 루테인플러스 -->
                 <a href="https://naver.me/xrzHln2Z" target="_blank" class="product-card" data-category="eye">
                     <img src="jmedi_image/리얼골드.jpg" alt="리얼골드 루테인플러스" class="product-img">
                     <div class="product-title">리얼골드 루테인플러스</div>
                     <div class="product-desc">60CX2 (4개월)</div>
                 </a>
 
-                <!-- 눈건강 4: 슈퍼루테인 코드리버 -->
                 <a href="https://naver.me/Gzd0aLg6" target="_blank" class="product-card" data-category="eye">
                     <img src="jmedi_image/코드리버.jpg" alt="슈퍼루테인 코드리버" class="product-img">
                     <div class="product-title">슈퍼루테인 코드리버</div>
@@ -484,14 +502,16 @@
             </div>
         </div>
 
-        <!-- 이달의 소식 섹션 -->
+        <!-- 이달의 소식 섹션 (QR 코드 적용) -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">이달의 소식</span>
             </div>
             
             <div class="monthly-news-content">
-                <!-- 작성 공간 -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://noophihi.github.io/jmedi/" alt="제이메디 모바일 책자 QR코드" class="qr-image">
+                <div class="qr-text-title">모바일 책자 QR 코드</div>
+                <div class="qr-text-sub">카메라로 스캔하면 이 페이지로 바로 이동합니다!</div>
             </div>
         </div>
     </div>
