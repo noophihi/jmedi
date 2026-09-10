@@ -367,152 +367,183 @@
             word-break: keep-all;
         }
 
-        /* ================= 7. 이미지 스타일 하단 채널 영역 ================= */
+        /* ================= 7. 브라우저 창 스타일 하단 영역 (2번째 이미지 일치) ================= */
         
-        /* 1) 상단 프로필 카드 */
-        .profile-card {
+        .browser-window {
             width: 100%;
-            background-color: #f8f9fa;
-            border-radius: 20px;
+            background-color: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-top: 10px;
+        }
+
+        /* 브라우저 상단 창 관리 버튼 헤더 */
+        .browser-header {
+            background-color: #f6f6f6;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+
+        .browser-body {
+            padding: 20px 16px 28px 16px;
+        }
+
+        /* 하늘색 프로필 영역 */
+        .browser-profile-box {
+            background-color: #cbebff;
+            border-radius: 12px;
             padding: 16px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .profile-logo {
-            width: 80px;
-            height: 80px;
+        .browser-profile-logo {
+            width: 75px;
+            height: 75px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .profile-logo img {
+        .browser-profile-logo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        .profile-info {
+        .browser-profile-info {
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .profile-handle {
+        .browser-handle {
             font-family: 'Gothic A1', sans-serif;
             font-weight: 900;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #222222;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
-        .profile-desc {
+        .browser-desc {
             font-family: 'Gothic A1', sans-serif;
             font-size: 0.72rem;
-            color: #444444;
+            font-weight: 700;
+            color: #333333;
             margin-bottom: 8px;
             white-space: nowrap;
         }
 
-        .follow-btn {
+        .browser-follow-btn {
             background-color: #1a9be2;
             color: #ffffff;
             font-family: 'Gothic A1', sans-serif;
-            font-weight: 700;
+            font-weight: 900;
             font-size: 0.9rem;
             text-align: center;
             padding: 6px 0;
             border-radius: 8px;
             text-decoration: none;
-            box-shadow: 0 2px 5px rgba(26, 155, 226, 0.3);
-            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 4px rgba(26, 155, 226, 0.3);
         }
 
-        .follow-btn:hover {
-            background-color: #1281c0;
-        }
-
-        /* 2) 하단 폴더 채널 카드 */
-        .channel-zip-card {
-            width: 100%;
-            background-color: #f8f9fa;
-            border-radius: 20px;
-            padding: 18px 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .zip-title-area {
+        /* 제목 영역 & 별 스티커 */
+        .browser-zip-title-area {
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 22px;
             position: relative;
         }
 
-        .zip-title {
+        .browser-zip-title {
             font-family: 'Gothic A1', sans-serif;
             font-weight: 900;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: #000000;
+            background-color: #d8f1ff;
+            padding: 1px 6px;
             display: inline-block;
-            background-color: #d1ecf1;
-            padding: 0 4px;
         }
 
-        /* 별 모양 스티커 장식 */
         .star-decor-1 {
             position: absolute;
-            right: 8px;
-            top: -4px;
+            right: 18px;
+            top: -10px;
             color: #0f98ec;
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
 
         .star-decor-2 {
             position: absolute;
-            right: 24px;
-            bottom: -6px;
-            color: #fff4a3;
-            font-size: 0.8rem;
+            right: 36px;
+            bottom: -12px;
+            color: #92ddff;
+            font-size: 1rem;
         }
 
-        /* 폴더 가로 배치 */
-        .folder-grid {
+        /* 폴더 및 클릭 커서 그리드 */
+        .browser-folder-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
         }
 
-        .folder-item {
+        .browser-folder-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            position: relative;
         }
 
-        .folder-item:hover {
-            transform: translateY(-3px);
+        .folder-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 125px;
+            display: flex;
+            justify-content: center;
         }
 
         /* 맥 스타일 SVG 폴더 아이콘 */
         .folder-svg {
             width: 100%;
-            max-width: 125px;
             height: auto;
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.12));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
-        .folder-label {
+        /* 마우스 커서 아이콘 */
+        .cursor-icon {
+            position: absolute;
+            right: -2px;
+            bottom: -6px;
+            width: 38px;
+            height: 38px;
+            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.2));
+            pointer-events: none;
+        }
+
+        .browser-folder-label {
             font-family: 'Gothic A1', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: #222222;
-            margin-top: 8px;
+            font-weight: 900;
+            font-size: 0.85rem;
+            color: #111111;
+            margin-top: 10px;
             text-align: center;
         }
     </style>
@@ -689,70 +720,87 @@
             </div>
         </div>
 
-        <!-- ================= 하단 채널 영역 (요청 이미지 반영) ================= -->
-        
-        <!-- 1) 프로필 카드 -->
-        <div class="profile-card">
-            <div class="profile-logo">
-                <img src="jmedi_image/logo.png" alt="제이메디 로고">
-            </div>
-            <div class="profile-info">
-                <div class="profile-handle">@jmedi</div>
-                <div class="profile-desc">매일 업데이트되는 미리캔버스 꿀팁 큐레이션</div>
-                <a href="https://jmedi.kr" target="_blank" class="follow-btn">팔로우</a>
-            </div>
-        </div>
-
-        <!-- 2) 폴더 채널 카드 -->
-        <div class="channel-zip-card">
-            <div class="zip-title-area">
-                <span class="zip-title">제이메디 채널.zip</span>
-                <span class="star-decor-1">★</span>
-                <span class="star-decor-2">★</span>
+        <!-- ================= 7. 브라우저 스타일 하단 채널 영역 ================= -->
+        <div class="browser-window">
+            <!-- 브라우저 창 상단 상징 버튼 -->
+            <div class="browser-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
             </div>
 
-            <div class="folder-grid">
-                <!-- 유튜브 바로가기 -->
-                <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="folder-item">
-                    <svg class="folder-svg" viewBox="0 0 100 80">
-                        <defs>
-                            <linearGradient id="folderGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#7dbce8"/>
-                                <stop offset="100%" stop-color="#55a3da"/>
-                            </linearGradient>
-                            <linearGradient id="folderGradFront1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#a3d5f7"/>
-                                <stop offset="100%" stop-color="#6baedc"/>
-                            </linearGradient>
-                        </defs>
-                        <!-- 백그라운드 탭 -->
-                        <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad1)"/>
-                        <!-- 전면 카바 -->
-                        <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#folderGradFront1)"/>
-                    </svg>
-                    <span class="folder-label">유튜브 바로가기</span>
-                </a>
+            <div class="browser-body">
+                <!-- 상단 프로필 하늘색 상자 -->
+                <div class="browser-profile-box">
+                    <div class="browser-profile-logo">
+                        <img src="jmedi_image/logo.png" alt="제이메디 로고">
+                    </div>
+                    <div class="browser-profile-info">
+                        <div class="browser-handle">@jmedi</div>
+                        <div class="browser-desc">제이메디의 채널을 바로가시려면 클릭해주세요</div>
+                        <a href="https://jmedi.kr" target="_blank" class="browser-follow-btn">팔로우</a>
+                    </div>
+                </div>
 
-                <!-- 페이스북 바로가기 -->
-                <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="folder-item">
-                    <svg class="folder-svg" viewBox="0 0 100 80">
-                        <defs>
-                            <linearGradient id="folderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#028bd3"/>
-                                <stop offset="100%" stop-color="#016cb3"/>
-                            </linearGradient>
-                            <linearGradient id="folderGradFront2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#1aa3f0"/>
-                                <stop offset="100%" stop-color="#0a81cb"/>
-                            </linearGradient>
-                        </defs>
-                        <!-- 백그라운드 탭 -->
-                        <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad2)"/>
-                        <!-- 전면 카바 -->
-                        <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#folderGradFront2)"/>
-                    </svg>
-                    <span class="folder-label">페이스북 바로가기</span>
-                </a>
+                <!-- 타이틀 섹션 -->
+                <div class="browser-zip-title-area">
+                    <span class="browser-zip-title">제이메디 채널.zip</span>
+                    <span class="star-decor-1">★</span>
+                    <span class="star-decor-2">★</span>
+                </div>
+
+                <!-- 폴더 목록 -->
+                <div class="browser-folder-grid">
+                    <!-- 유튜브 바로가기 -->
+                    <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="browser-folder-item">
+                        <div class="folder-wrapper">
+                            <svg class="folder-svg" viewBox="0 0 100 80">
+                                <defs>
+                                    <linearGradient id="bFolderGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#7dbce8"/>
+                                        <stop offset="100%" stop-color="#55a3da"/>
+                                    </linearGradient>
+                                    <linearGradient id="bFolderFront1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#a3d5f7"/>
+                                        <stop offset="100%" stop-color="#6baedc"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad1)"/>
+                                <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront1)"/>
+                            </svg>
+                            <!-- 마우스 커서 SVG -->
+                            <svg class="cursor-icon" viewBox="0 0 40 40">
+                                <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="browser-folder-label">유튜브 바로가기</span>
+                    </a>
+
+                    <!-- 페이스북 바로가기 -->
+                    <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="browser-folder-item">
+                        <div class="folder-wrapper">
+                            <svg class="folder-svg" viewBox="0 0 100 80">
+                                <defs>
+                                    <linearGradient id="bFolderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#028bd3"/>
+                                        <stop offset="100%" stop-color="#016cb3"/>
+                                    </linearGradient>
+                                    <linearGradient id="bFolderFront2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#1aa3f0"/>
+                                        <stop offset="100%" stop-color="#0a81cb"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad2)"/>
+                                <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront2)"/>
+                            </svg>
+                            <!-- 마우스 커서 SVG -->
+                            <svg class="cursor-icon" viewBox="0 0 40 40">
+                                <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="browser-folder-label">페이스북 바로가기</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
