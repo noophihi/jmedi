@@ -367,98 +367,109 @@
             word-break: keep-all;
         }
 
-        /* 7. 제이메디 채널 영역 */
-        .channel-container {
+        /* 7. 제이메디 채널 영역 (참고 이미지 감성 반영 좌우 나란히 카드) */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding-top: 4px;
+        }
+
+        .channel-card-fancy {
+            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            padding: 2px 0;
-        }
-
-        .channel-card {
-            display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 14px 18px;
-            border-radius: 18px;
+            justify-content: center;
+            padding: 22px 10px 16px 10px;
+            border-radius: 20px;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
             transition: all 0.25s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            overflow: visible;
         }
 
-        .channel-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+        .channel-card-fancy:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        .channel-card.youtube {
-            background: linear-gradient(135deg, #ff1e1e 0%, #d60000 100%);
+        /* 카드별 감성 배경색 */
+        .channel-card-fancy.youtube {
+            background: linear-gradient(145deg, #fff2f2 0%, #ffd8d8 100%);
+            border: 2px solid #ffb5b5;
         }
 
-        .channel-card.facebook {
-            background: linear-gradient(135deg, #1877f2 0%, #0c5dc7 100%);
+        .channel-card-fancy.facebook {
+            background: linear-gradient(145deg, #f0f5ff 0%, #d8e5ff 100%);
+            border: 2px solid #b5d0ff;
         }
 
-        .channel-info {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            z-index: 1;
+        /* 리본 장식 아이콘 */
+        .ribbon-decor {
+            position: absolute;
+            top: -12px;
+            width: 32px;
+            height: 20px;
+            z-index: 2;
         }
 
-        .channel-icon-circle {
-            width: 40px;
-            height: 40px;
-            background-color: #ffffff;
+        .channel-card-fancy.youtube .ribbon-decor {
+            fill: #ff4d4d;
+        }
+
+        .channel-card-fancy.facebook .ribbon-decor {
+            fill: #3b82f6;
+        }
+
+        .channel-icon-bg {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 10px;
         }
 
-        .channel-icon-circle svg {
-            width: 22px;
-            height: 22px;
+        .channel-icon-bg svg {
+            width: 26px;
+            height: 26px;
         }
 
-        .channel-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .channel-name {
+        .channel-fancy-title {
             font-family: 'Jua', sans-serif;
-            font-size: 1.15rem;
-            color: #ffffff;
-            letter-spacing: 0.2px;
+            font-size: 1.1rem;
+            color: #333333;
+            margin-bottom: 2px;
+            text-align: center;
         }
 
-        .channel-sub {
+        .channel-fancy-desc {
             font-family: 'Gothic A1', sans-serif;
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.88);
-            margin-top: 1px;
+            font-size: 0.72rem;
+            color: #666666;
+            margin-bottom: 12px;
+            text-align: center;
         }
 
-        .channel-go-btn {
-            z-index: 1;
-            background-color: #ffffff;
+        .channel-fancy-btn {
             font-family: 'Jua', sans-serif;
-            font-size: 0.95rem;
-            padding: 7px 16px;
-            border-radius: 20px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+            font-size: 0.85rem;
+            padding: 5px 14px;
+            border-radius: 15px;
+            color: #ffffff;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
-        .channel-card.youtube .channel-go-btn {
-            color: #d60000;
+        .channel-card-fancy.youtube .channel-fancy-btn {
+            background-color: #ff3b3b;
         }
 
-        .channel-card.facebook .channel-go-btn {
-            color: #1877f2;
+        .channel-card-fancy.facebook .channel-fancy-btn {
+            background-color: #2563eb;
         }
     </style>
 </head>
@@ -613,43 +624,49 @@
             </div>
         </div>
 
-        <!-- 제이메디 채널 섹션 -->
+        <!-- 제이메디 채널 섹션 (좌우 나란히 스페셜 카드) -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">제이메디 채널</span>
             </div>
             
-            <div class="channel-container">
-                <!-- 유튜브 카드 -->
-                <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="channel-card youtube">
-                    <div class="channel-info">
-                        <div class="channel-icon-circle">
-                            <svg viewBox="0 0 24 24" fill="#ff1e1e">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </div>
-                        <div class="channel-text">
-                            <span class="channel-name">유튜브 채널</span>
-                            <span class="channel-sub">제이메디 공식 영상 보기</span>
-                        </div>
+            <div class="channel-grid">
+                <!-- 유튜브 카드 (왼쪽) -->
+                <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="channel-card-fancy youtube">
+                    <!-- 상단 리본 장식 -->
+                    <svg class="ribbon-decor" viewBox="0 0 100 60">
+                        <path d="M20,30 C5,10 5,50 35,35 C45,30 55,30 65,35 C95,50 95,10 80,30 C70,40 30,40 20,30 Z"/>
+                        <circle cx="50" cy="32" r="6"/>
+                    </svg>
+                    
+                    <div class="channel-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="#ff1e1e">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
                     </div>
-                    <div class="channel-go-btn">이동하기</div>
+                    
+                    <div class="channel-fancy-title">유튜브 채널</div>
+                    <div class="channel-fancy-desc">공식 영상 바로가기</div>
+                    <div class="channel-fancy-btn">바로가기</div>
                 </a>
 
-                <!-- 페이스북 카드 -->
-                <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="channel-card facebook">
-                    <div class="channel-info">
-                        <div class="channel-icon-circle">
-                            <svg viewBox="0 0 24 24" fill="#1877f2">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </div>
-                        <div class="channel-text">
-                            <span class="channel-name">페이스북 채널</span>
-                            <span class="channel-sub">제이메디 최신 소식 보기</span>
-                        </div>
+                <!-- 페이스북 카드 (오른쪽) -->
+                <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="channel-card-fancy facebook">
+                    <!-- 상단 리본 장식 -->
+                    <svg class="ribbon-decor" viewBox="0 0 100 60">
+                        <path d="M20,30 C5,10 5,50 35,35 C45,30 55,30 65,35 C95,50 95,10 80,30 C70,40 30,40 20,30 Z"/>
+                        <circle cx="50" cy="32" r="6"/>
+                    </svg>
+
+                    <div class="channel-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="#1877f2">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
                     </div>
-                    <div class="channel-go-btn">이동하기</div>
+
+                    <div class="channel-fancy-title">페이스북 채널</div>
+                    <div class="channel-fancy-desc">최신 소식 바로가기</div>
+                    <div class="channel-fancy-btn">바로가기</div>
                 </a>
             </div>
         </div>
