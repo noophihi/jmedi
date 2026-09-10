@@ -406,7 +406,7 @@
         .dot.green { background-color: #27c93f; }
 
         .browser-body {
-            padding: 4px 16px 28px 16px;
+            padding: 4px 12px 24px 12px;
         }
 
         .browser-profile-box {
@@ -528,7 +528,7 @@
 
         .browser-zip-title-area {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -562,11 +562,11 @@
             font-size: 0.85rem;
         }
 
-        /* 폴더 그리드 */
+        /* 🔥 한 줄에 4개 배치 (1열x4개 그리드) 🔥 */
         .browser-folder-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px 16px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
         }
 
         .browser-folder-item {
@@ -585,7 +585,7 @@
         .folder-wrapper {
             position: relative;
             width: 100%;
-            max-width: 125px;
+            max-width: 75px; /* 한 줄 4개용 사이즈 축소 */
             display: flex;
             justify-content: center;
         }
@@ -598,22 +598,24 @@
 
         .cursor-icon {
             position: absolute;
-            right: 2px;
-            bottom: -8px;
-            width: 34px;
-            height: 34px;
-            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.25));
+            right: 0px;
+            bottom: -6px;
+            width: 22px; /* 커서 사이즈 축소 */
+            height: 22px;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.25));
             pointer-events: none;
         }
 
         .browser-folder-label {
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 900;
-            font-size: 0.88rem;
+            font-size: 0.72rem; /* 글자 크기 조정 */
             color: #111111;
-            margin-top: 10px;
+            margin-top: 6px;
             text-align: center;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            word-break: keep-all; /* 줄바꿈 자연스럽게 처리 */
         }
     </style>
 </head>
@@ -820,10 +822,10 @@
                     <span class="star-decor-2">★</span>
                 </div>
 
-                <!-- 서로 다른 하늘/파란색 톤을 가진 4개 폴더 -->
+                <!-- 한 줄에 4개 배치된 폴더 그리드 -->
                 <div class="browser-folder-grid">
                     
-                    <!-- 1. 유튜브 바로가기 (라이트 아이스 블루 톤) -->
+                    <!-- 1. 유튜브 바로가기 -->
                     <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -844,10 +846,10 @@
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <span class="browser-folder-label">유튜브 바로가기</span>
+                        <span class="browser-folder-label">유튜브<br>바로가기</span>
                     </a>
 
-                    <!-- 2. 페이스북 바로가기 (클래식 코발트 블루 톤) -->
+                    <!-- 2. 페이스북 바로가기 -->
                     <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -868,10 +870,10 @@
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <span class="browser-folder-label">페이스북 바로가기</span>
+                        <span class="browser-folder-label">페이스북<br>바로가기</span>
                     </a>
 
-                    <!-- 3. 인스타 바로가기 (스카이 블루 톤) -->
+                    <!-- 3. 인스타 바로가기 -->
                     <a href="https://www.instagram.com/jmedi8115?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -892,10 +894,10 @@
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <span class="browser-folder-label">인스타 바로가기</span>
+                        <span class="browser-folder-label">인스타<br>바로가기</span>
                     </a>
 
-                    <!-- 4. 틱톡 바로가기 (딥 오션 블루 톤) -->
+                    <!-- 4. 틱톡 바로가기 -->
                     <a href="https://www.tiktok.com/@jmedi6119?is_from_webapp=1&sender_device=pc" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -916,7 +918,7 @@
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <span class="browser-folder-label">틱톡 바로가기</span>
+                        <span class="browser-folder-label">틱톡<br>바로가기</span>
                     </a>
 
                 </div>
