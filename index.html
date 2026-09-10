@@ -401,10 +401,10 @@
             padding: 4px 16px 28px 16px;
         }
 
-        /* [핵심 요청사항 반영] 끝부분 양쪽 파란색 세로선 및 원형 동그라미 포인트 가이드 */
+        /* 프로필 상자 (양쪽 파란 세로선 & 원형 포인트) */
         .browser-profile-box {
             background-color: #cbebff;
-            border-radius: 0; /* 레퍼런스 이미지처럼 직각 모서리 */
+            border-radius: 0;
             padding: 14px 12px;
             display: flex;
             align-items: center;
@@ -558,11 +558,11 @@
             font-size: 0.85rem;
         }
 
-        /* 하단 폴더 및 마우스 커서 */
+        /* 하단 폴더 4개 그리드 (2x2) */
         .browser-folder-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 20px 16px;
         }
 
         .browser-folder-item {
@@ -571,6 +571,11 @@
             align-items: center;
             text-decoration: none;
             position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .browser-folder-item:hover {
+            transform: translateY(-2px);
         }
 
         .folder-wrapper {
@@ -789,7 +794,7 @@
             </div>
 
             <div class="browser-body">
-                <!-- 프로필 상자 (양쪽 파란 세로선 & 원형 포인트 구현) -->
+                <!-- 프로필 상자 (파란 가이드선 & 포인트) -->
                 <div class="browser-profile-box">
                     <div class="left-guide-line"></div>
                     <div class="right-guide-line"></div>
@@ -811,9 +816,9 @@
                     <span class="star-decor-2">★</span>
                 </div>
 
-                <!-- 폴더 목록 -->
+                <!-- 폴더 목록 (총 4개) -->
                 <div class="browser-folder-grid">
-                    <!-- 유튜브 바로가기 -->
+                    <!-- 1. 유튜브 바로가기 -->
                     <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -837,7 +842,7 @@
                         <span class="browser-folder-label">유튜브 바로가기</span>
                     </a>
 
-                    <!-- 페이스북 바로가기 -->
+                    <!-- 2. 페이스북 바로가기 -->
                     <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
@@ -859,6 +864,54 @@
                             </svg>
                         </div>
                         <span class="browser-folder-label">페이스북 바로가기</span>
+                    </a>
+
+                    <!-- 3. 인스타 바로가기 -->
+                    <a href="https://www.instagram.com/jmedi8115?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" class="browser-folder-item">
+                        <div class="folder-wrapper">
+                            <svg class="folder-svg" viewBox="0 0 100 80">
+                                <defs>
+                                    <linearGradient id="bFolderGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#60a8e8"/>
+                                        <stop offset="100%" stop-color="#3b8dd6"/>
+                                    </linearGradient>
+                                    <linearGradient id="bFolderFront3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#8bc7f8"/>
+                                        <stop offset="100%" stop-color="#55a5e8"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad3)"/>
+                                <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront3)"/>
+                            </svg>
+                            <svg class="cursor-icon" viewBox="0 0 40 40">
+                                <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="browser-folder-label">인스타 바로가기</span>
+                    </a>
+
+                    <!-- 4. 틱톡 바로가기 -->
+                    <a href="https://www.tiktok.com/@jmedi6119?is_from_webapp=1&sender_device=pc" target="_blank" class="browser-folder-item">
+                        <div class="folder-wrapper">
+                            <svg class="folder-svg" viewBox="0 0 100 80">
+                                <defs>
+                                    <linearGradient id="bFolderGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#0077ba"/>
+                                        <stop offset="100%" stop-color="#00588e"/>
+                                    </linearGradient>
+                                    <linearGradient id="bFolderFront4" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#088fdb"/>
+                                        <stop offset="100%" stop-color="#006eb5"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad4)"/>
+                                <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront4)"/>
+                            </svg>
+                            <svg class="cursor-icon" viewBox="0 0 40 40">
+                                <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="browser-folder-label">틱톡 바로가기</span>
                     </a>
                 </div>
             </div>
