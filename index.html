@@ -394,7 +394,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        /* 카드별 감성 배경색 */
         .channel-card-fancy.youtube {
             background: linear-gradient(145deg, #fff2f2 0%, #ffd8d8 100%);
             border: 2px solid #ffb5b5;
@@ -405,7 +404,6 @@
             border: 2px solid #b5d0ff;
         }
 
-        /* 리본 장식 아이콘 */
         .ribbon-decor {
             position: absolute;
             top: -12px;
@@ -481,14 +479,12 @@
     </svg>
 
     <div class="container">
-        <!-- 상단 헤더 영역 (정중앙 로고 + 우측 끝 미니 QR) -->
+        <!-- 상단 헤더 영역 -->
         <div class="top-header-area">
-            <!-- 원형 로고 (정중앙) -->
             <div class="logo-circle">
                 <img src="jmedi_image/logo.png" alt="제이메디 로고" class="logo-img">
             </div>
 
-            <!-- 미니 QR 코드 (배경 없음, 오른쪽 끝) -->
             <div class="top-qr-box">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://noophihi.github.io/jmedi/" alt="jmedi QR코드" class="top-qr-img">
                 <span class="top-qr-label">스캔/공유</span>
@@ -506,13 +502,11 @@
             </div>
 
             <div class="catalog-grid">
-                <!-- 왼쪽 책자: catalog1.pdf (메인 폴더) -->
                 <a href="catalog1.pdf" target="_blank" class="catalog-item">
                     <img src="jmedi_image/catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
-                <!-- 오른쪽 책자: catalog2.pdf (메인 폴더) -->
                 <a href="catalog2.pdf" target="_blank" class="catalog-item">
                     <img src="jmedi_image/catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
                     <div class="book-title">역매품 책자</div>
@@ -621,19 +615,43 @@
                     <div class="product-title">슈퍼루테인 코드리버</div>
                     <div class="product-desc">60CX2 (4개월)</div>
                 </a>
+
+                <!-- ================= 유산균 ================= -->
+                <a href="https://naver.me/IIDb6pb3" target="_blank" class="product-card" data-category="probiotics">
+                    <img src="jmedi_image/이너굿락토.jpg" alt="이너굿락토" class="product-img">
+                    <div class="product-title">이너굿락토</div>
+                    <div class="product-desc">30CX2 (2개월)</div>
+                </a>
+
+                <a href="https://naver.me/xLNY6wPh" target="_blank" class="product-card" data-category="probiotics">
+                    <img src="jmedi_image/듀오락토킹.jpg" alt="마이크로바이옴 듀오락토킹" class="product-img">
+                    <div class="product-title">마이크로바이옴 듀오락토킹</div>
+                    <div class="product-desc">60CX2 (4개월)</div>
+                </a>
+
+                <a href="https://naver.me/xnOH2Vww" target="_blank" class="product-card" data-category="probiotics">
+                    <img src="jmedi_image/피비탑.jpg" alt="마이크로바이옴 피비탑골드" class="product-img">
+                    <div class="product-title">마이크로바이옴 피비탑골드</div>
+                    <div class="product-desc">60CX2 (4개월)</div>
+                </a>
+
+                <a href="https://naver.me/FQupq8Lb" target="_blank" class="product-card" data-category="probiotics">
+                    <img src="jmedi_image/당케어.jpg" alt="당케어&락토피스5.0" class="product-img">
+                    <div class="product-title">당케어&락토피스5.0</div>
+                    <div class="product-desc">60CX2 (4개월)</div>
+                </a>
             </div>
         </div>
 
-        <!-- 제이메디 채널 섹션 (좌우 나란히 스페셜 카드) -->
+        <!-- 제이메디 채널 섹션 -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">제이메디 채널</span>
             </div>
             
             <div class="channel-grid">
-                <!-- 유튜브 카드 (왼쪽) -->
+                <!-- 유튜브 카드 -->
                 <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="channel-card-fancy youtube">
-                    <!-- 상단 리본 장식 -->
                     <svg class="ribbon-decor" viewBox="0 0 100 60">
                         <path d="M20,30 C5,10 5,50 35,35 C45,30 55,30 65,35 C95,50 95,10 80,30 C70,40 30,40 20,30 Z"/>
                         <circle cx="50" cy="32" r="6"/>
@@ -650,9 +668,8 @@
                     <div class="channel-fancy-btn">바로가기</div>
                 </a>
 
-                <!-- 페이스북 카드 (오른쪽) -->
+                <!-- 페이스북 카드 -->
                 <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="channel-card-fancy facebook">
-                    <!-- 상단 리본 장식 -->
                     <svg class="ribbon-decor" viewBox="0 0 100 60">
                         <path d="M20,30 C5,10 5,50 35,35 C45,30 55,30 65,35 C95,50 95,10 80,30 C70,40 30,40 20,30 Z"/>
                         <circle cx="50" cy="32" r="6"/>
