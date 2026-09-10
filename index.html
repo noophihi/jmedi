@@ -49,7 +49,16 @@
             z-index: 1;
         }
 
-        /* 1. 상단 원형 로고 */
+        /* 1. 상단 영역 (로고 + QR코드 나란히 배치) */
+        .top-header-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px;
+            width: 100%;
+        }
+
         .logo-circle {
             width: 85px;
             height: 85px;
@@ -58,7 +67,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 14px;
             box-shadow: inset 0 -3px 6px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08);
             overflow: hidden;
             padding: 8px;
@@ -68,6 +76,30 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .top-qr-box {
+            background-color: #ffffff;
+            padding: 6px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-qr-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 6px;
+        }
+
+        .top-qr-label {
+            font-family: 'Jua', sans-serif;
+            font-size: 0.65rem;
+            color: #0b4b8a;
+            margin-top: 2px;
         }
 
         /* 2. 상단 헤더 문구 */
@@ -146,6 +178,11 @@
             align-items: center;
             text-decoration: none;
             cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-3px);
         }
 
         .book-cover-img {
@@ -328,35 +365,91 @@
             word-break: keep-all;
         }
 
-        /* 7. 이달의 소식 영역 (QR 코드 관련 스타일) */
-        .monthly-news-content {
+        /* 7. 이달의 소식 영역 (SNS 클릭 버튼 스타일) */
+        .sns-container {
             display: flex;
             flex-direction: column;
+            gap: 10px;
+            padding: 4px 0;
+        }
+
+        .sns-btn {
+            display: flex;
             align-items: center;
-            text-align: center;
-            padding: 10px 0;
+            justify-content: space-between;
+            padding: 12px 18px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .qr-image {
-            width: 160px;
-            height: 160px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            border: 1px solid #e1f0fc;
-            margin-bottom: 10px;
+        .sns-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
         }
 
-        .qr-text-title {
+        .sns-btn.youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+        }
+
+        .sns-btn.facebook {
+            background: linear-gradient(135deg, #1877f2, #0d52b5);
+        }
+
+        .sns-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sns-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1rem;
+        }
+
+        .sns-btn.youtube .sns-icon {
+            color: #ff0000;
+        }
+
+        .sns-btn.facebook .sns-icon {
+            color: #1877f2;
+        }
+
+        .sns-text-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .sns-title {
             font-family: 'Jua', sans-serif;
-            font-size: 1.05rem;
-            color: #0b4b8a;
-            margin-bottom: 4px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.2;
         }
 
-        .qr-text-sub {
+        .sns-sub {
             font-family: 'Gothic A1', sans-serif;
-            font-size: 0.78rem;
-            color: #888888;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .sns-action-btn {
+            background-color: rgba(255, 255, 255, 0.25);
+            font-family: 'Jua', sans-serif;
+            font-size: 0.95rem;
+            padding: 5px 12px;
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
         }
     </style>
 </head>
@@ -368,9 +461,18 @@
     </svg>
 
     <div class="container">
-        <!-- 원형 로고 -->
-        <div class="logo-circle">
-            <img src="jmedi_image/logo.png" alt="제이메디 로고" class="logo-img">
+        <!-- 상단 헤더 영역 (로고 + QR) -->
+        <div class="top-header-area">
+            <!-- 원형 로고 -->
+            <div class="logo-circle">
+                <img src="jmedi_image/logo.png" alt="제이메디 로고" class="logo-img">
+            </div>
+
+            <!-- 미니 QR 코드 -->
+            <div class="top-qr-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://noophihi.github.io/jmedi/" alt="jmedi QR코드" class="top-qr-img">
+                <span class="top-qr-label">스캔 및 공유</span>
+            </div>
         </div>
 
         <!-- 헤더 문구 -->
@@ -384,13 +486,13 @@
             </div>
 
             <div class="catalog-grid">
-                <!-- 1번 책자 -->
-                <a href="#" class="catalog-item">
+                <!-- 1번 책자: 2026 제이메디 책자 -->
+                <a href="catalog1.pdf" target="_blank" class="catalog-item">
                     <img src="jmedi_image/catalog.png" alt="2026 제이메디 책자 표지" class="book-cover-img">
                     <div class="book-title">2026 제이메디 책자</div>
                 </a>
 
-                <!-- 2번 책자 -->
+                <!-- 2번 책자: 역매품 책자 -->
                 <a href="catalog2.pdf" target="_blank" class="catalog-item">
                     <img src="jmedi_image/catalog2.png" alt="역매품 책자 표지" class="book-cover-img">
                     <div class="book-title">역매품 책자</div>
@@ -502,16 +604,36 @@
             </div>
         </div>
 
-        <!-- 이달의 소식 섹션 (QR 코드 적용) -->
+        <!-- 이달의 소식 섹션 (유튜브 & 페이스북 연결) -->
         <div class="card-section">
             <div class="badge-header">
                 <span class="badge-title">이달의 소식</span>
             </div>
             
-            <div class="monthly-news-content">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://noophihi.github.io/jmedi/" alt="제이메디 모바일 책자 QR코드" class="qr-image">
-                <div class="qr-text-title">모바일 책자 QR 코드</div>
-                <div class="qr-text-sub">카메라로 스캔하면 이 페이지로 바로 이동합니다!</div>
+            <div class="sns-container">
+                <!-- 유튜브 버튼 -->
+                <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="sns-btn youtube">
+                    <div class="sns-left">
+                        <div class="sns-icon">▶</div>
+                        <div class="sns-text-group">
+                            <span class="sns-title">제이메디 유튜브</span>
+                            <span class="sns-sub">공식 유튜브 채널 바로가기</span>
+                        </div>
+                    </div>
+                    <div class="sns-action-btn">보러가기</div>
+                </a>
+
+                <!-- 페이스북 버튼 -->
+                <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="sns-btn facebook">
+                    <div class="sns-left">
+                        <div class="sns-icon">f</div>
+                        <div class="sns-text-group">
+                            <span class="sns-title">제이메디 페이스북</span>
+                            <span class="sns-sub">공식 페이스북 바로가기</span>
+                        </div>
+                    </div>
+                    <div class="sns-action-btn">보러가기</div>
+                </a>
             </div>
         </div>
     </div>
