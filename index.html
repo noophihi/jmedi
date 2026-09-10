@@ -603,7 +603,7 @@
             pointer-events: none;
         }
 
-        /* 🔥 HOMEPAGE 파트 '제이메디' 글씨 스타일과 100% 동일하게 통일 🔥 */
+        /* HOMEPAGE 파트 스타일과 동일하게 통일 */
         .browser-folder-label {
             font-family: 'Jua', sans-serif;
             font-size: 1.15rem;
@@ -901,11 +901,11 @@
                                 <defs>
                                     <linearGradient id="folderGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
                                         <stop offset="0%" stop-color="#1b8ebd"/>
-                                        <stop offset="100%" stop-color="#127198"/>
+                                        <stop offset="100%" stop-color="#146d92"/>
                                     </linearGradient>
                                     <linearGradient id="folderFront4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#6fcef6"/>
-                                        <stop offset="100%" stop-color="#3caee2"/>
+                                        <stop offset="0%" stop-color="#58cae8"/>
+                                        <stop offset="100%" stop-color="#2ba8cf"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad4)"/>
@@ -923,34 +923,34 @@
         </div>
     </div>
 
-    <!-- 스크립트 -->
+    <!-- 카테고리 필터 스크립트 -->
     <script>
-        const buttons = document.querySelectorAll('.cat-chip');
-        const cards = document.querySelectorAll('.product-card');
+        document.addEventListener('DOMContentLoaded', function() {
+            const chips = document.querySelectorAll('.cat-chip');
+            const products = document.querySelectorAll('.product-card');
 
-        const initialFilter = document.querySelector('.cat-chip.active').getAttribute('data-filter');
-        filterProducts(initialFilter);
+            function filterProducts(category) {
+                products.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            }
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+            // 초기 선택
+            filterProducts('gum');
 
-                const filter = button.getAttribute('data-filter');
-                filterProducts(filter);
+            chips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    chips.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.getAttribute('data-filter');
+                    filterProducts(category);
+                });
             });
         });
-
-        function filterProducts(filter) {
-            cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === category) {
-                    card.classList.remove('hide');
-                } else {
-                    card.classList.add('hide');
-                }
-            });
-        }
     </script>
 </body>
 </html>
