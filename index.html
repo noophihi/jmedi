@@ -489,8 +489,7 @@
         }
 
         .browser-handle {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 900;
+            font-family: 'Jua', sans-serif;
             font-size: 1.35rem;
             color: #111111;
             margin-bottom: 2px;
@@ -514,11 +513,10 @@
         .browser-follow-btn {
             background-color: #1a9be2;
             color: #ffffff;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-family: 'Jua', sans-serif;
+            font-size: 0.95rem;
             text-align: center;
-            padding: 6px 0;
+            padding: 5px 0;
             border-radius: 10px;
             text-decoration: none;
             display: block;
@@ -536,12 +534,11 @@
         }
 
         .browser-zip-title {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 900;
+            font-family: 'Jua', sans-serif;
             font-size: 1.35rem;
             color: #000000;
             background-color: #d8f1ff;
-            padding: 2px 8px;
+            padding: 2px 10px;
             letter-spacing: -0.5px;
             position: relative;
         }
@@ -562,7 +559,7 @@
             font-size: 0.85rem;
         }
 
-        /* 🔥 한 줄에 4개 배치 (1열x4개 그리드) 🔥 */
+        /* 1행 4열 폴더 그리드 */
         .browser-folder-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -585,7 +582,7 @@
         .folder-wrapper {
             position: relative;
             width: 100%;
-            max-width: 75px; /* 한 줄 4개용 사이즈 축소 */
+            max-width: 75px;
             display: flex;
             justify-content: center;
         }
@@ -600,22 +597,22 @@
             position: absolute;
             right: 0px;
             bottom: -6px;
-            width: 22px; /* 커서 사이즈 축소 */
+            width: 22px;
             height: 22px;
             filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.25));
             pointer-events: none;
         }
 
+        /* 🔥 글씨체 변경: 'Jua' 폰트 적용 🔥 */
         .browser-folder-label {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 900;
-            font-size: 0.72rem; /* 글자 크기 조정 */
+            font-family: 'Jua', sans-serif;
+            font-size: 0.8rem;
             color: #111111;
             margin-top: 6px;
             text-align: center;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-            word-break: keep-all; /* 줄바꿈 자연스럽게 처리 */
+            letter-spacing: -0.3px;
+            line-height: 1.15;
+            word-break: keep-all;
         }
     </style>
 </head>
@@ -822,21 +819,21 @@
                     <span class="star-decor-2">★</span>
                 </div>
 
-                <!-- 한 줄에 4개 배치된 폴더 그리드 -->
+                <!-- 요청해주신 이미지 정밀 색상 4종 + 'Jua' 폰트 적용 그리드 -->
                 <div class="browser-folder-grid">
                     
-                    <!-- 1. 유튜브 바로가기 -->
+                    <!-- 1. 유튜브 바로가기 (이미지 좌상단: 스카이 블루) -->
                     <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="folderGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#91d5ff"/>
-                                        <stop offset="100%" stop-color="#5fb8f2"/>
+                                        <stop offset="0%" stop-color="#4ea3e3"/>
+                                        <stop offset="100%" stop-color="#3b8dcb"/>
                                     </linearGradient>
                                     <linearGradient id="folderFront1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#bae7ff"/>
-                                        <stop offset="100%" stop-color="#83d0f5"/>
+                                        <stop offset="0%" stop-color="#a1d5fa"/>
+                                        <stop offset="100%" stop-color="#71bbf4"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad1)"/>
@@ -849,18 +846,18 @@
                         <span class="browser-folder-label">유튜브<br>바로가기</span>
                     </a>
 
-                    <!-- 2. 페이스북 바로가기 -->
+                    <!-- 2. 페이스북 바로가기 (이미지 우상단: 코발트/딥 블루) -->
                     <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="folderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#1890ff"/>
-                                        <stop offset="100%" stop-color="#096dd9"/>
+                                        <stop offset="0%" stop-color="#026bc2"/>
+                                        <stop offset="100%" stop-color="#015298"/>
                                     </linearGradient>
                                     <linearGradient id="folderFront2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#40a9ff"/>
-                                        <stop offset="100%" stop-color="#1890ff"/>
+                                        <stop offset="0%" stop-color="#38adfd"/>
+                                        <stop offset="100%" stop-color="#0d8ae8"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad2)"/>
@@ -873,18 +870,18 @@
                         <span class="browser-folder-label">페이스북<br>바로가기</span>
                     </a>
 
-                    <!-- 3. 인스타 바로가기 -->
+                    <!-- 3. 인스타 바로가기 (이미지 좌하단: 그레이시 데님 블루) -->
                     <a href="https://www.instagram.com/jmedi8115?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="folderGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#36cfc9"/>
-                                        <stop offset="100%" stop-color="#13c2c2"/>
+                                        <stop offset="0%" stop-color="#51739c"/>
+                                        <stop offset="100%" stop-color="#3e5b7e"/>
                                     </linearGradient>
                                     <linearGradient id="folderFront3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#5cdbd3"/>
-                                        <stop offset="100%" stop-color="#36cfc9"/>
+                                        <stop offset="0%" stop-color="#92b3d8"/>
+                                        <stop offset="100%" stop-color="#7093be"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad3)"/>
@@ -897,18 +894,18 @@
                         <span class="browser-folder-label">인스타<br>바로가기</span>
                     </a>
 
-                    <!-- 4. 틱톡 바로가기 -->
+                    <!-- 4. 틱톡 바로가기 (이미지 우하단: 시안/터콰이즈 블루) -->
                     <a href="https://www.tiktok.com/@jmedi6119?is_from_webapp=1&sender_device=pc" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="folderGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#0050b3"/>
-                                        <stop offset="100%" stop-color="#003a8c"/>
+                                        <stop offset="0%" stop-color="#1b8ebd"/>
+                                        <stop offset="100%" stop-color="#127198"/>
                                     </linearGradient>
                                     <linearGradient id="folderFront4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#096dd9"/>
-                                        <stop offset="100%" stop-color="#0050b3"/>
+                                        <stop offset="0%" stop-color="#6fcef6"/>
+                                        <stop offset="100%" stop-color="#3caee2"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#folderGrad4)"/>
