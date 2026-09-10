@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제이메디 모바일 책자</title>
-    <!-- 웹폰트 (Jua, Gamja Flower, Gothic A1) -->
+    <!-- 웹폰트 (Jua, Noto Sans KR) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1:wght@700;900&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -23,7 +23,7 @@
             align-items: flex-start;
             min-height: 100vh;
             padding: 20px 0 60px 0;
-            font-family: 'Jua', 'Gamja Flower', 'Gothic A1', sans-serif;
+            font-family: 'Jua', 'Noto Sans KR', sans-serif;
             position: relative;
             overflow-x: hidden;
         }
@@ -49,7 +49,7 @@
             z-index: 1;
         }
 
-        /* 1. 상단 영역 (로고 정중앙 + 우측 끝 미니 QR) */
+        /* 1. 상단 로고 & QR */
         .top-header-area {
             position: relative;
             width: 100%;
@@ -76,6 +76,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
         }
 
         .top-qr-box {
@@ -87,7 +88,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: transparent;
         }
 
         .top-qr-img {
@@ -213,7 +213,7 @@
             margin-top: 6px;
         }
 
-        /* 5. 홈페이지 링크/버튼 스타일 */
+        /* 5. 홈페이지 링크 */
         .link-item {
             text-decoration: none;
             display: block;
@@ -349,6 +349,7 @@
             border-radius: 12px;
             margin-bottom: 8px;
             background-color: #f2f7fc;
+            display: block;
         }
 
         .product-title {
@@ -360,37 +361,36 @@
         }
 
         .product-desc {
-            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 0.75rem;
             color: #888888;
             line-height: 1.3;
             word-break: keep-all;
         }
 
-        /* ================= 7. 브라우저 창 스타일 하단 영역 (2번째 이미지 일치) ================= */
-        
+        /* ================= 7. 하단 브라우저 컨테이너 ================= */
         .browser-window {
             width: 100%;
             background-color: #ffffff;
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             margin-top: 10px;
+            border: 1px solid #eaeaea;
         }
 
-        /* 브라우저 상단 창 관리 버튼 헤더 */
+        /* 브라우저 상단 3색 점 */
         .browser-header {
-            background-color: #f6f6f6;
-            padding: 12px 18px;
+            background-color: #ffffff;
+            padding: 14px 18px 8px 18px;
             display: flex;
             align-items: center;
-            gap: 7px;
-            border-bottom: 1px solid #e8e8e8;
+            gap: 8px;
         }
 
         .dot {
-            width: 11px;
-            height: 11px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
         }
 
@@ -399,23 +399,23 @@
         .dot.green { background-color: #27c93f; }
 
         .browser-body {
-            padding: 20px 16px 28px 16px;
+            padding: 10px 18px 28px 18px;
         }
 
-        /* 하늘색 프로필 영역 */
+        /* [요청] 두 번째 스크린샷과 100% 동일한 프로필 카운터 영역 */
         .browser-profile-box {
             background-color: #cbebff;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 22px;
         }
 
         .browser-profile-logo {
-            width: 75px;
-            height: 75px;
+            width: 80px;
+            height: 80px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -426,78 +426,88 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
         }
 
         .browser-profile-info {
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
         .browser-handle {
-            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 900;
-            font-size: 1.25rem;
-            color: #222222;
+            font-size: 1.45rem;
+            color: #111111;
             margin-bottom: 2px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
         }
 
         .browser-desc {
-            font-family: 'Gothic A1', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 8px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 10px;
             white-space: nowrap;
+            letter-spacing: -0.4px;
         }
 
         .browser-follow-btn {
             background-color: #1a9be2;
             color: #ffffff;
-            font-family: 'Gothic A1', sans-serif;
-            font-weight: 900;
-            font-size: 0.9rem;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
             text-align: center;
-            padding: 6px 0;
-            border-radius: 8px;
+            padding: 7px 0;
+            border-radius: 10px;
             text-decoration: none;
-            box-shadow: 0 2px 4px rgba(26, 155, 226, 0.3);
+            display: block;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(26, 155, 226, 0.2);
         }
 
-        /* 제목 영역 & 별 스티커 */
+        /* 타이틀 & 별 장식 */
         .browser-zip-title-area {
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
             position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .browser-zip-title {
-            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 900;
             font-size: 1.4rem;
             color: #000000;
             background-color: #d8f1ff;
             padding: 1px 6px;
-            display: inline-block;
+            letter-spacing: -0.5px;
         }
 
         .star-decor-1 {
             position: absolute;
-            right: 18px;
+            right: -24px;
             top: -10px;
             color: #0f98ec;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .star-decor-2 {
             position: absolute;
-            right: 36px;
+            right: -16px;
             bottom: -12px;
-            color: #92ddff;
-            font-size: 1rem;
+            color: #a3e2ff;
+            font-size: 0.9rem;
         }
 
-        /* 폴더 및 클릭 커서 그리드 */
+        /* 하단 폴더 및 마우스 커서 그리드 */
         .browser-folder-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -520,31 +530,31 @@
             justify-content: center;
         }
 
-        /* 맥 스타일 SVG 폴더 아이콘 */
         .folder-svg {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
         }
 
-        /* 마우스 커서 아이콘 */
+        /* 마우스 커서 위치 및 비율 정밀 맞춤 */
         .cursor-icon {
             position: absolute;
-            right: -2px;
-            bottom: -6px;
-            width: 38px;
-            height: 38px;
-            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.2));
+            right: 2px;
+            bottom: -8px;
+            width: 36px;
+            height: 36px;
+            filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.25));
             pointer-events: none;
         }
 
         .browser-folder-label {
-            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 900;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #111111;
             margin-top: 10px;
             text-align: center;
+            letter-spacing: -0.3px;
         }
     </style>
 </head>
@@ -643,7 +653,7 @@
 
             <!-- 제품 카드 목록 -->
             <div class="product-grid">
-                <!-- ================= 잇몸건강 ================= -->
+                <!-- 잇몸건강 -->
                 <a href="https://naver.me/5p0C6qaA" target="_blank" class="product-card" data-category="gum">
                     <img src="jmedi_image/이모스틴.png" alt="이모스틴" class="product-img">
                     <div class="product-title">이모스틴</div>
@@ -668,7 +678,7 @@
                     <div class="product-desc">60TX2 (4개월)</div>
                 </a>
 
-                <!-- ================= 눈건강 ================= -->
+                <!-- 눈건강 -->
                 <a href="https://naver.me/xbKPssoe" target="_blank" class="product-card" data-category="eye">
                     <img src="jmedi_image/루테인파워플러스.jpg" alt="루테인 파워플러스" class="product-img">
                     <div class="product-title">루테인 파워플러스</div>
@@ -693,7 +703,7 @@
                     <div class="product-desc">60CX2 (4개월)</div>
                 </a>
 
-                <!-- ================= 유산균 ================= -->
+                <!-- 유산균 -->
                 <a href="https://naver.me/IIDb6pb3" target="_blank" class="product-card" data-category="probiotics">
                     <img src="jmedi_image/이너굿락토.jpg" alt="이너굿락토" class="product-img">
                     <div class="product-title">이너굿락토</div>
@@ -722,7 +732,6 @@
 
         <!-- ================= 7. 브라우저 스타일 하단 채널 영역 ================= -->
         <div class="browser-window">
-            <!-- 브라우저 창 상단 상징 버튼 -->
             <div class="browser-header">
                 <div class="dot red"></div>
                 <div class="dot yellow"></div>
@@ -730,7 +739,7 @@
             </div>
 
             <div class="browser-body">
-                <!-- 상단 프로필 하늘색 상자 -->
+                <!-- 프로필 상자 (원본 이미지 100% 동일 수정) -->
                 <div class="browser-profile-box">
                     <div class="browser-profile-logo">
                         <img src="jmedi_image/logo.png" alt="제이메디 로고">
@@ -742,7 +751,7 @@
                     </div>
                 </div>
 
-                <!-- 타이틀 섹션 -->
+                <!-- 제이메디 채널.zip 타이틀 -->
                 <div class="browser-zip-title-area">
                     <span class="browser-zip-title">제이메디 채널.zip</span>
                     <span class="star-decor-1">★</span>
@@ -751,24 +760,23 @@
 
                 <!-- 폴더 목록 -->
                 <div class="browser-folder-grid">
-                    <!-- 유튜브 바로가기 -->
+                    <!-- 유튜브 -->
                     <a href="https://youtube.com/channel/UCE4ZVsQDg2Ao-8qmQ_4iuLA?si=seRCkOh9GiysjCT8" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="bFolderGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#7dbce8"/>
-                                        <stop offset="100%" stop-color="#55a3da"/>
+                                        <stop offset="0%" stop-color="#80bde8"/>
+                                        <stop offset="100%" stop-color="#5ca2d9"/>
                                     </linearGradient>
                                     <linearGradient id="bFolderFront1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#a3d5f7"/>
-                                        <stop offset="100%" stop-color="#6baedc"/>
+                                        <stop offset="0%" stop-color="#a8d7f7"/>
+                                        <stop offset="100%" stop-color="#71b1de"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad1)"/>
                                 <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront1)"/>
                             </svg>
-                            <!-- 마우스 커서 SVG -->
                             <svg class="cursor-icon" viewBox="0 0 40 40">
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
@@ -776,24 +784,23 @@
                         <span class="browser-folder-label">유튜브 바로가기</span>
                     </a>
 
-                    <!-- 페이스북 바로가기 -->
+                    <!-- 페이스북 -->
                     <a href="https://www.facebook.com/61577814425362/?http_ref=eyJ0cyI6MTc4OTAxMjEwOTAwMCwiciI6IiJ9" target="_blank" class="browser-folder-item">
                         <div class="folder-wrapper">
                             <svg class="folder-svg" viewBox="0 0 100 80">
                                 <defs>
                                     <linearGradient id="bFolderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#028bd3"/>
-                                        <stop offset="100%" stop-color="#016cb3"/>
+                                        <stop offset="0%" stop-color="#0083cc"/>
+                                        <stop offset="100%" stop-color="#0063ab"/>
                                     </linearGradient>
                                     <linearGradient id="bFolderFront2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#1aa3f0"/>
-                                        <stop offset="100%" stop-color="#0a81cb"/>
+                                        <stop offset="0%" stop-color="#119ee9"/>
+                                        <stop offset="100%" stop-color="#0477c0"/>
                                     </linearGradient>
                                 </defs>
                                 <path d="M5,15 C5,10 10,8 15,8 L35,8 C40,8 43,12 47,15 L52,18 L90,18 C95,18 98,21 98,26 L98,70 C98,75 95,78 90,78 L10,78 C5,78 2,75 2,70 L2,20 Z" fill="url(#bFolderGrad2)"/>
                                 <rect x="2" y="24" width="96" height="52" rx="8" fill="url(#bFolderFront2)"/>
                             </svg>
-                            <!-- 마우스 커서 SVG -->
                             <svg class="cursor-icon" viewBox="0 0 40 40">
                                 <path d="M7 2 L26 21 L16 21 L22 34 L17 36 L11 23 L3 30 Z" fill="#ffffff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
                             </svg>
@@ -805,7 +812,7 @@
         </div>
     </div>
 
-    <!-- 필터 스크립트 -->
+    <!-- 스크립트 -->
     <script>
         const buttons = document.querySelectorAll('.cat-chip');
         const cards = document.querySelectorAll('.product-card');
