@@ -368,7 +368,7 @@
             word-break: keep-all;
         }
 
-        /* ================= 7. 하단 브라우저 창 정밀 레이아웃 ================= */
+        /* ================= 7. 하단 브라우저 창 ================= */
         .browser-window {
             width: 100%;
             background-color: #ffffff;
@@ -401,10 +401,10 @@
             padding: 4px 16px 28px 16px;
         }
 
-        /* [핵심 수정] 텍스트가 절대 넘치지 않는 프로필 카드 */
+        /* [핵심 요청사항 반영] 끝부분 양쪽 파란색 세로선 및 원형 동그라미 포인트 가이드 */
         .browser-profile-box {
-            background-color: #d1ecfd;
-            border-radius: 20px;
+            background-color: #cbebff;
+            border-radius: 0; /* 레퍼런스 이미지처럼 직각 모서리 */
             padding: 14px 12px;
             display: flex;
             align-items: center;
@@ -412,6 +412,51 @@
             margin-bottom: 22px;
             width: 100%;
             box-sizing: border-box;
+            position: relative;
+        }
+
+        /* 좌측 세로선 & 상단 파란 원형 포인트 */
+        .browser-profile-box::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -6px;
+            width: 12px;
+            height: 12px;
+            background-color: #1a9be2;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .left-guide-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #1a9be2;
+        }
+
+        /* 우측 세로선 & 하단 파란 원형 포인트 */
+        .browser-profile-box::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            bottom: -6px;
+            width: 12px;
+            height: 12px;
+            background-color: #1a9be2;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .right-guide-line {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #1a9be2;
         }
 
         .browser-profile-logo {
@@ -432,7 +477,7 @@
 
         .browser-profile-info {
             flex: 1;
-            min-width: 0; /* flex 자식 요소 텍스트 넘침 방지 */
+            min-width: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -450,7 +495,7 @@
 
         .browser-desc {
             font-family: 'Noto Sans KR', sans-serif;
-            font-size: 0.68rem; /* 모바일 폭에 맞춘 크기 정밀 조정 */
+            font-size: 0.68rem;
             font-weight: 500;
             color: #222222;
             margin-bottom: 8px;
@@ -476,7 +521,7 @@
             box-shadow: 0 2px 4px rgba(26, 155, 226, 0.2);
         }
 
-        /* 타이틀 & 별 장식 중앙 정렬 */
+        /* 타이틀 & 별 장식 */
         .browser-zip-title-area {
             text-align: center;
             margin-bottom: 24px;
@@ -744,8 +789,11 @@
             </div>
 
             <div class="browser-body">
-                <!-- 프로필 상자 -->
+                <!-- 프로필 상자 (양쪽 파란 세로선 & 원형 포인트 구현) -->
                 <div class="browser-profile-box">
+                    <div class="left-guide-line"></div>
+                    <div class="right-guide-line"></div>
+
                     <div class="browser-profile-logo">
                         <img src="jmedi_image/logo.png" alt="제이메디 로고">
                     </div>
